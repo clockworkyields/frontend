@@ -12,7 +12,7 @@ const tokens = {
     decimals: 18,
     projectLink: 'https://clockwork.money',
   },
-  piano: {
+  clock: {
     symbol: 'CLOCK',
     address: {
       56: '0xd46936677b2c1bb696f2b67c55239331e2b7cd42',
