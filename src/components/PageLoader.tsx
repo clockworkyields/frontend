@@ -17,7 +17,7 @@ const StyledImage = styled.img`
 const PageLoader: React.FC = () => {
   return (
     <Wrapper>
-        <StyledImage src="/images/mozart-flying.png" alt="Mozart illustration" width={300} height={300} />
+        <StyledImage src="/images/load.jpg" alt="Clockwork illustration" width={300} height={300} />
     </Wrapper>
   )
 }
