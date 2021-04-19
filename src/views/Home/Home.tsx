@@ -27,13 +27,31 @@ const Hero = styled.div`
   background-position: left center, right center;
   background-size: contain;
 
-  ${({ theme }) => theme.mediaQueries.lg} {
+
+  @media (max-width: 840px) {
+    background-image: none;
+    background-position: left center, right center;
+    height: 165px;
+    padding-top: 0;
+    background-position: left center, right center;
+    background-size: contain;
+  }
+
+  @media (min-width: 1170px) {
     background-image: url('/images/eye.gif');
     background-position: left center, right center;
     height: 165px;
     padding-top: 0;
     background-position: left center, right center;
     background-size: contain;
+  }
+
+  ${({ theme }) => theme.mediaQueries.lg} {
+
+  }
+
+  ${({ theme }) => theme.mediaQueries.xs} {
+
   }
 `
 

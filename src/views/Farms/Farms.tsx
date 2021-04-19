@@ -94,6 +94,22 @@ const StyledImage = styled(Image)`
   margin-left: auto;
   margin-right: auto;
   margin-top: 58px;
+
+  @media (max-width: 730px) {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 58px;
+    width: 400px;
+    height: 150px;
+  }
+
+  @media (max-width: 530px) {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 58px;
+    width: 300px;
+    height: 100px;
+  }
 `
 
 const Header = styled.div`
@@ -346,7 +362,7 @@ const Farms: React.FC = () => {
           </FilterContainer>
         </ControlContainer>
         {renderContent()}
-        <StyledImage src="/images/mozart-flying.png" alt="Clockwork illustration" width={400} height={100} />
+        <StyledImage src="/images/mozart-flying.png" alt="Mozart illustration" width={500} height={200} />
       </Page>
     </>
   )
