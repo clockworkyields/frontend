@@ -10,16 +10,16 @@ const tokens = {
       97: '0xae13d989dac2f0debff460ac112a837c89baa7cd',
     },
     decimals: 18,
-    projectLink: 'https://mozartfinance.io/',
+    projectLink: 'https://clockwork.money',
   },
   piano: {
-    symbol: 'PIANO',
+    symbol: 'CLOCK',
     address: {
       56: '0xd46936677b2c1bb696f2b67c55239331e2b7cd42',
       97: '',
     },
     decimals: 18,
-    projectLink: 'https://mozartfinance.io/',
+    projectLink: 'https://clockwork.money',
   },
   foam: {
     symbol: 'FOAM',
@@ -28,7 +28,7 @@ const tokens = {
       97: '',
     },
     decimals: 18,
-    projectLink: 'https://mozartfinance.io/',
+    projectLink: 'https://clockwork.money',
   },
   busd: {
     symbol: 'BUSD',
