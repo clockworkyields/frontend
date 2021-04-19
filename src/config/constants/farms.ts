@@ -19,7 +19,7 @@ const farms: FarmConfig[] = [
       56: '0xb40AE531Da43F7D114F2E6D9c331171Ef4130f5F',
       97: '',
     },
-    token: tokens.piano,
+    token: tokens.clock,
     quoteToken: tokens.wbnb,
   },
   {
@@ -29,7 +29,7 @@ const farms: FarmConfig[] = [
       56: '0xd8D201CeBC25c39AD3E05536F94ECc3B6Bc8cAcc',
       97: '',
     },
-    token: tokens.piano,
+    token: tokens.clock,
     quoteToken: tokens.busd,
   },
   {
@@ -39,7 +39,7 @@ const farms: FarmConfig[] = [
       56: '0x0E7197386A37c0D792D9D357D59f89b679cf1b06',
       97: '',
     },
-    token: tokens.piano,
+    token: tokens.clock,
     quoteToken: tokens.cake,
   },
   {
@@ -79,7 +79,7 @@ const farms: FarmConfig[] = [
       56: '0xfFeb22c6143B982699E2dcBafBb0EAC51d0F408E',
       97: ''
     },
-    token: tokens.piano,
+    token: tokens.clock,
     quoteToken: tokens.ada,
   },
   {
@@ -89,7 +89,7 @@ const farms: FarmConfig[] = [
       56: '0xe3905652c879d9df7319b5756350dd2bb5e052e9',
       97: ''
     },
-    token: tokens.piano,
+    token: tokens.clock,
     quoteToken: tokens.dot,
   },
   {
