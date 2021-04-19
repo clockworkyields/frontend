@@ -94,6 +94,7 @@ const StyledImage = styled(Image)`
   margin-left: auto;
   margin-right: auto;
   margin-top: 58px;
+  height: 94%
 
   @media (max-width: 730px) {
     margin-left: auto;
@@ -362,7 +363,7 @@ const Farms: React.FC = () => {
           </FilterContainer>
         </ControlContainer>
         {renderContent()}
-        <StyledImage src="/images/mozart-flying.png" alt="Mozart illustration" width={500} height={200} />
+        <StyledImage src="/images/mozart-flying.png" alt="Clockwork illustration" width={500} height={190} />
       </Page>
     </>
   )
