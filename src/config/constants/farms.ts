@@ -84,7 +84,7 @@ const farms: FarmConfig[] = [
   },
   {
     pid: 9,
-    lpSymbol: 'CLOCK-CAKE LP',
+    lpSymbol: 'CLOCK-BTD LP',
     lpAddresses: {
       56: '0xe3905652c879d9df7319b5756350dd2bb5e052e9',
       97: ''
@@ -94,7 +94,7 @@ const farms: FarmConfig[] = [
   },
   {
     pid: 10,
-    lpSymbol: 'HYPR-BNB LP',
+    lpSymbol: 'HYPER-BNB LP',
     lpAddresses: {
       56: '0xc15fa3e22c912a276550f3e5fe3b0deb87b55acd',
       97: ''
