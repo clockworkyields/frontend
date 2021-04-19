@@ -4,8 +4,8 @@ import { PoolConfig, PoolCategory } from './types'
 const pools: PoolConfig[] = [
   {
     sousId: 0,
-    stakingToken: tokens.piano,
-    earningToken: tokens.piano,
+    stakingToken: tokens.clock,
+    earningToken: tokens.clock,
     contractAddress: {
       56: '0x2AED73484814e67F8b795Fc38Af71E2CEc429d0f',
       97: ''
