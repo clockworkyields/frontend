@@ -4,7 +4,7 @@ import { FarmConfig } from './types'
 const farms: FarmConfig[] = [
   {
     pid: 0,
-    lpSymbol: 'PIANO',
+    lpSymbol: 'CLOCK',
     lpAddresses: {
       56: '0xd46936677B2C1Bb696F2b67c55239331E2b7Cd42',
       97: '',
@@ -14,7 +14,7 @@ const farms: FarmConfig[] = [
   },
   {
     pid: 1,
-    lpSymbol: 'PIANO-BNB LP',
+    lpSymbol: 'CLOCK-BNB LP',
     lpAddresses: {
       56: '0xb40AE531Da43F7D114F2E6D9c331171Ef4130f5F',
       97: '',
@@ -24,7 +24,7 @@ const farms: FarmConfig[] = [
   },
   {
     pid: 2,
-    lpSymbol: 'PIANO-BUSD LP',
+    lpSymbol: 'CLOCK-BUSD LP',
     lpAddresses: {
       56: '0xd8D201CeBC25c39AD3E05536F94ECc3B6Bc8cAcc',
       97: '',
@@ -34,7 +34,7 @@ const farms: FarmConfig[] = [
   },
   {
     pid: 3,
-    lpSymbol: 'PIANO-CAKE LP',
+    lpSymbol: 'BTC-BNB LP',
     lpAddresses: {
       56: '0x0E7197386A37c0D792D9D357D59f89b679cf1b06',
       97: '',
@@ -54,7 +54,7 @@ const farms: FarmConfig[] = [
   },
   {
     pid: 5,
-    lpSymbol: 'USDC-BUSD LP',
+    lpSymbol: 'FUEL-BNB LP',
     lpAddresses: {
       56: '0x680dd100e4b394bda26a59dd5c119a391e747d18',
       97: ''
@@ -74,7 +74,7 @@ const farms: FarmConfig[] = [
   },
   {
     pid: 8,
-    lpSymbol: 'PIANO-ADA LP',
+    lpSymbol: 'CLOCK-ALLOY LP',
     lpAddresses: {
       56: '0xfFeb22c6143B982699E2dcBafBb0EAC51d0F408E',
       97: ''
@@ -84,7 +84,7 @@ const farms: FarmConfig[] = [
   },
   {
     pid: 9,
-    lpSymbol: 'PIANO-DOT LP',
+    lpSymbol: 'CLOCK-CAKE LP',
     lpAddresses: {
       56: '0xe3905652c879d9df7319b5756350dd2bb5e052e9',
       97: ''
@@ -94,7 +94,7 @@ const farms: FarmConfig[] = [
   },
   {
     pid: 10,
-    lpSymbol: 'USDT-BUSD LP',
+    lpSymbol: 'HYPR-BNB LP',
     lpAddresses: {
       56: '0xc15fa3e22c912a276550f3e5fe3b0deb87b55acd',
       97: ''
@@ -104,7 +104,7 @@ const farms: FarmConfig[] = [
   },
   {
     pid: 11,
-    lpSymbol: 'DOT-ETH LP',
+    lpSymbol: 'CDMC-BNB LP',
     lpAddresses: {
       56: '0x84cd882a0abaf8ad69b85fef0a8d5a36f5c0ecc1',
       97: ''
