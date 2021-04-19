@@ -79,7 +79,7 @@ const farms: FarmConfig[] = [
       56: '0xfFeb22c6143B982699E2dcBafBb0EAC51d0F408E',
       97: ''
     },
-    token: tokens.clock,
+    token: tokens.clock, 
     quoteToken: tokens.alloy,
   },
   {
