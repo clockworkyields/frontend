@@ -12,11 +12,11 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Exchange',
-        href: 'https://exchange.mozartfinance.io',
+        href: 'https://swap.hyperjump.fi/#/swap',
       },
       {
         label: 'Liquidity',
-        href: 'https://exchange.mozartfinance.io/#/pool',
+        href: 'https://swap.hyperjump.fi/#/pool',
       },
     ],
   },
@@ -36,23 +36,23 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Github',
-        href: 'https://github.com/mozartfinance',
+        href: 'https://github.com/clockworkyields',
       },
       {
         label: 'Docs',
-        href: 'https://mozartfinance.gitbook.io/mozart-finance/',
+        href: 'https://app.gitbook.com/@clockworkyields/s/clockwork/',
       },
       {
-        label: 'Blog',
-        href: 'https://mozart-finance.medium.com/',
+        label: 'Medium',
+        href: 'https://clockwork-yields.medium.com/',
       },
     ],
   },
-  {
-    label: 'Audit by IB',
-    icon: 'TicketIcon',
-    href: 'https://github.com/ImmuneBytes/Smart-Contract-Audit-Reports/blob/main/Mozart%20Finance/Mozart%20Finance%20(PIANO)%20-%20Final%20Audit%20Report.pdf',
-  },
+//  {
+//    label: 'Audit by IB',
+//    icon: 'TicketIcon',
+//    href: 'https://github.com/ImmuneBytes/Smart-Contract-Audit-Reports/blob/main/Mozart%20Finance/Mozart%20Finance%20(PIANO)%20-%20Final%20Audit%20Report.pdf',
+//  },
 ]
 
 export default config
