@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card } from '@mozartfinance/uikit'
+import { Card } from 'clock-uikit'
 import { DataResponse } from 'utils/getLotteryRoundData'
 import PastRoundCardError from './PastRoundCardError'
 import PastRoundCardDetails from './PastRoundCardDetails'

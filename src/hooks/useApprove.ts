@@ -1,16 +1,17 @@
 import { useCallback } from 'react'
-import { useWeb3React } from '@web3-react/core'
+import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { Contract } from 'web3-eth-contract'
 import { ethers } from 'ethers'
 import { useDispatch } from 'react-redux'
 import { updateUserAllowance, fetchFarmUserDataAsync } from 'state/actions'
 import { approve } from 'utils/callHelpers'
+import { getxBlzdAddress } from 'utils/addressHelpers'
 import { useMasterchef, useCake, useSousChef, useLottery } from './useContract'
 
 // Approve a Farm
 export const useApprove = (lpContract: Contract) => {
   const dispatch = useDispatch()
-  const { account } = useWeb3React()
+  const { account }: { account: string } = useWallet()
   const masterChefContract = useMasterchef()
 
   const handleApprove = useCallback(async () => {
@@ -29,7 +30,7 @@ export const useApprove = (lpContract: Contract) => {
 // Approve a Pool
 export const useSousApprove = (lpContract: Contract, sousId) => {
   const dispatch = useDispatch()
-  const { account } = useWeb3React()
+  const { account }: { account: string } = useWallet()
   const sousChefContract = useSousChef(sousId)
 
   const handleApprove = useCallback(async () => {
@@ -47,7 +48,7 @@ export const useSousApprove = (lpContract: Contract, sousId) => {
 
 // Approve the lottery
 export const useLotteryApprove = () => {
-  const { account } = useWeb3React()
+  const { account }: { account: string } = useWallet()
   const cakeContract = useCake()
   const lotteryContract = useLottery()
 
@@ -65,11 +66,36 @@ export const useLotteryApprove = () => {
 
 // Approve an IFO
 export const useIfoApprove = (tokenContract: Contract, spenderAddress: string) => {
-  const { account } = useWeb3React()
+  const { account } = useWallet()
   const onApprove = useCallback(async () => {
-    const tx = await tokenContract.methods.approve(spenderAddress, ethers.constants.MaxUint256).send({ from: account })
-    return tx
+    try {
+      const tx = await tokenContract.methods
+        .approve(spenderAddress, ethers.constants.MaxUint256)
+        .send({ from: account })
+      return tx
+    } catch {
+      return false
+    }
   }, [account, spenderAddress, tokenContract])
+
+  return onApprove
+}
+
+// Approve xBLZD
+export const useXBlzdApprove = () => {
+  const { account } = useWallet()
+  const cakeContract = useCake()
+
+  const onApprove = useCallback(async () => {
+    try {
+      const tx = await cakeContract.methods
+        .approve(getxBlzdAddress(), ethers.constants.MaxUint256)
+        .send({ from: account })
+      return tx
+    } catch {
+      return false
+    }
+  }, [account, cakeContract])
 
   return onApprove
 }

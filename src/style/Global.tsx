@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 // eslint-disable-next-line import/no-unresolved
-import { PancakeTheme } from '@mozartfinance/uikit/dist/theme'
+import { PancakeTheme } from 'clock-uikit'
 
 declare module 'styled-components' {
   /* eslint-disable @typescript-eslint/no-empty-interface */
@@ -9,7 +9,9 @@ declare module 'styled-components' {
 
 const GlobalStyle = createGlobalStyle`
   * {
-    font-family: 'Kanit', sans-serif;
+    // font-family: 'Rubik', sans-serif;
+    // font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Limelight', cursive;
   }
   body {
     background-color: ${({ theme }) => theme.colors.background};

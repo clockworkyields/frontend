@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Heading, Text, Flex } from '@mozartfinance/uikit'
+import { Heading, Text, Flex } from 'clock-uikit'
 
 interface IfoCardHeaderProps {
   ifoId: string
@@ -28,7 +28,12 @@ const Description = styled(Text)`
 const IfoCardHeader: React.FC<IfoCardHeaderProps> = ({ ifoId, name, subTitle }) => {
   return (
     <StyledIfoCardHeader mb="24px" alignItems="center">
-      <img src={`/images/ifos/${ifoId}.svg`} alt={ifoId} width="64px" height="64px" />
+      <img
+        src={`https://raw.githubusercontent.com/blzd-dev/blzd-frontend/master/public/images/ifos/${ifoId}.svg`}
+        alt={ifoId}
+        width="64px"
+        height="64px"
+      />
       <div>
         <Name>{name}</Name>
         <Description>{subTitle}</Description>

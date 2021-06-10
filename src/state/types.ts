@@ -1,23 +1,14 @@
-import { Toast } from '@mozartfinance/uikit'
 import BigNumber from 'bignumber.js'
-import { CampaignType, FarmConfig, Nft, PoolConfig, Team } from 'config/constants/types'
-
-export type TranslatableText =
-  | string
-  | {
-      id: number
-      fallback: string
-      data?: {
-        [key: string]: string | number
-      }
-    }
+import { FarmConfig, PoolConfig } from 'config/constants/types'
 
 export interface Farm extends FarmConfig {
   tokenAmount?: BigNumber
-  quoteTokenAmount?: BigNumber
+  // quoteTokenAmount?: BigNumber
   lpTotalInQuoteToken?: BigNumber
   tokenPriceVsQuote?: BigNumber
-  poolWeight?: BigNumber
+  poolWeight?: number
+  depositFeeBP?: number
+  blzdPerBlock?: number
   userData?: {
     allowance: BigNumber
     tokenBalance: BigNumber
@@ -38,24 +29,7 @@ export interface Pool extends PoolConfig {
   }
 }
 
-export interface Profile {
-  userId: number
-  points: number
-  teamId: number
-  nftAddress: string
-  tokenId: number
-  isActive: boolean
-  username: string
-  nft?: Nft
-  team: Team
-  hasRegistered: boolean
-}
-
 // Slices states
-
-export interface ToastsState {
-  data: Toast[]
-}
 
 export interface FarmsState {
   data: Farm[]
@@ -63,45 +37,6 @@ export interface FarmsState {
 
 export interface PoolsState {
   data: Pool[]
-}
-
-export interface ProfileState {
-  isInitialized: boolean
-  isLoading: boolean
-  hasRegistered: boolean
-  data: Profile
-}
-
-export type TeamResponse = {
-  0: string
-  1: string
-  2: string
-  3: string
-  4: boolean
-}
-
-export type TeamsById = {
-  [key: string]: Team
-}
-
-export interface TeamsState {
-  isInitialized: boolean
-  isLoading: boolean
-  data: TeamsById
-}
-
-export interface Achievement {
-  id: string
-  type: CampaignType
-  address: string
-  title: TranslatableText
-  description?: TranslatableText
-  badge: string
-  points: number
-}
-
-export interface AchievementState {
-  data: Achievement[]
 }
 
 // API Price State
@@ -121,22 +56,15 @@ export interface PriceState {
   data: PriceList
 }
 
-// Block
-
-export interface BlockState {
-  currentBlock: number
-  initialBlock: number
-}
-
 // Global state
 
 export interface State {
   farms: FarmsState
-  toasts: ToastsState
   prices: PriceState
   pools: PoolsState
-  profile: ProfileState
-  teams: TeamsState
-  achievements: AchievementState
-  block: BlockState
+  block: Block
+}
+
+export interface Block {
+  blockNumber: number
 }

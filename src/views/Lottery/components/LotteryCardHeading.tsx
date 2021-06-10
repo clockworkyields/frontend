@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Flex, Heading, Text } from '@mozartfinance/uikit'
+import { Flex, Heading, Text } from 'clock-uikit'
 
 interface HeadingProps {
   valueToDisplay?: string

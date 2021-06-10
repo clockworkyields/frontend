@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useWeb3React } from '@web3-react/core'
-import { Image, Card, CardBody } from '@mozartfinance/uikit'
+import { useWallet } from '@binance-chain/bsc-use-wallet'
+import { Image, Card, CardBody } from 'clock-uikit'
 import { useWinningNumbers, useMatchingRewardLength } from 'hooks/useTickets'
 import useI18n from 'hooks/useI18n'
 import useGetLotteryHasDrawn from 'hooks/useGetLotteryHasDrawn'
 
 const WinningNumbers: React.FC = () => {
-  const { account } = useWeb3React()
+  const { account } = useWallet()
   const winNumbers = useWinningNumbers()
   const lotteryHasDrawn = useGetLotteryHasDrawn()
   const MatchedNumber4 = useMatchingRewardLength(4)
@@ -24,7 +24,7 @@ const WinningNumbers: React.FC = () => {
               <Title>
                 {account && lotteryHasDrawn
                   ? `🥳${TranslateString(570, 'Winning Numbers This Round')}🥳`
-                  : TranslateString(440, 'Latest Winning Numbers')}
+                  : TranslateString(572, 'Latest Winning Numbers')}
               </Title>
               <br />
             </StyledCardHeader>
@@ -39,44 +39,92 @@ const WinningNumbers: React.FC = () => {
             <RabbitRow>
               <RabbitBox>
                 <CardImageFirst>
-                  <Image src="/images/sign bunny 1@2x.png" alt="Number 1" width={200} height={150} responsive />
+                  <Image
+                    src="https://raw.githubusercontent.com/blzd-dev/blzd-frontend/master/public/images/sign bunny 1@2x.png"
+                    alt="Number 1"
+                    width={200}
+                    height={150}
+                    responsive
+                  />
                 </CardImageFirst>
               </RabbitBox>
               <RabbitBox>
                 <CardImage style={{ marginLeft: '-1.2em' }}>
-                  <Image src="/images/sign bunny 2@2x.png" alt="Number 2" width={200} height={150} responsive />
+                  <Image
+                    src="https://raw.githubusercontent.com/blzd-dev/blzd-frontend/master/public/images/sign bunny 2@2x.png"
+                    alt="Number 2"
+                    width={200}
+                    height={150}
+                    responsive
+                  />
                 </CardImage>
               </RabbitBox>
               <RabbitBox>
                 <CardImage style={{ marginLeft: '-1.2em' }}>
-                  <Image src="/images/sign bunny 3@2x.png" alt="Number 3" width={200} height={150} responsive />
+                  <Image
+                    src="https://raw.githubusercontent.com/blzd-dev/blzd-frontend/master/public/images/sign bunny 3@2x.png"
+                    alt="Number 3"
+                    width={200}
+                    height={150}
+                    responsive
+                  />
                 </CardImage>
               </RabbitBox>
               <RabbitBox>
                 <CardImage style={{ marginLeft: '-1.2em' }}>
-                  <Image src="/images/sign bunny 4@2x.png" alt="Number 4" width={200} height={150} responsive />
+                  <Image
+                    src="https://raw.githubusercontent.com/blzd-dev/blzd-frontend/master/public/images/sign bunny 4@2x.png"
+                    alt="Number 4"
+                    width={200}
+                    height={150}
+                    responsive
+                  />
                 </CardImage>
               </RabbitBox>
             </RabbitRow>
             <RabbitRowSmall>
               <RabbitBoxSmall>
                 <CardImageFirst>
-                  <Image src="/images/sign bunny 1@2x.png" alt="Number 1" width={200} height={150} responsive />
+                  <Image
+                    src="https://raw.githubusercontent.com/blzd-dev/blzd-frontend/master/public/images/sign bunny 1@2x.png"
+                    alt="Number 1"
+                    width={200}
+                    height={150}
+                    responsive
+                  />
                 </CardImageFirst>
               </RabbitBoxSmall>
               <RabbitBoxSmall>
                 <CardImage style={{ marginLeft: '-1.2em' }}>
-                  <Image src="/images/sign bunny 2@2x.png" alt="Number 2" width={200} height={150} responsive />
+                  <Image
+                    src="https://raw.githubusercontent.com/blzd-dev/blzd-frontend/master/public/images/sign bunny 2@2x.png"
+                    alt="Number 2"
+                    width={200}
+                    height={150}
+                    responsive
+                  />
                 </CardImage>
               </RabbitBoxSmall>
               <RabbitBoxSmall>
                 <CardImage style={{ marginLeft: '-1.2em' }}>
-                  <Image src="/images/sign bunny 3@2x.png" alt="Number 3" width={200} height={150} responsive />
+                  <Image
+                    src="https://raw.githubusercontent.com/blzd-dev/blzd-frontend/master/public/images/sign bunny 3@2x.png"
+                    alt="Number 3"
+                    width={200}
+                    height={150}
+                    responsive
+                  />
                 </CardImage>
               </RabbitBoxSmall>
               <RabbitBoxSmall>
                 <CardImage style={{ marginLeft: '-1.2em' }}>
-                  <Image src="/images/sign bunny 4@2x.png" alt="Number 4" width={200} height={150} responsive />
+                  <Image
+                    src="https://raw.githubusercontent.com/blzd-dev/blzd-frontend/master/public/images/sign bunny 4@2x.png"
+                    alt="Number 4"
+                    width={200}
+                    height={150}
+                    responsive
+                  />
                 </CardImage>
               </RabbitBoxSmall>
             </RabbitRowSmall>

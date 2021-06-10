@@ -1,4 +1,4 @@
-import { MenuEntry } from '@mozartfinance/uikit'
+import { MenuEntry } from 'clock-uikit'
 
 const config: MenuEntry[] = [
   {
@@ -12,47 +12,54 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Exchange',
-        href: 'https://swap.hyperjump.fi/#/swap',
+        href: 'https://swap.hyperjump.fi/#/swap?outputcurrency=0xeF52250C313dF3321cE27290092cd9E984e6F33A',
+        external: true,
       },
       {
         label: 'Liquidity',
-        href: 'https://swap.hyperjump.fi/#/pool',
+        href: 'https://swap.hyperjump.fi/#/add/BNB/0xeF52250C313dF3321cE27290092cd9E984e6F33A',
+        external: true,
       },
     ],
   },
   {
-    label: 'Farms',
-    icon: 'FarmIcon',
+    label: 'CLOCKWORK',
+    icon: 'ClockIcon',
     href: '/farms',
   },
   {
-    label: 'Pools',
-    icon: 'PoolIcon',
+    label: 'Verified Rentals',
+    icon: 'VerifiedIcon',
+    href: '/caves',
+  },
+  {
+    label: 'Unverified Rentals',
+    icon: 'UnverifiedIcon',
     href: '/pools',
   },
   {
-    label: 'More',
-    icon: 'MoreIcon',
+    label: 'Info',
+    icon: 'InfoIcon',
     items: [
       {
-        label: 'Github',
-        href: 'https://github.com/clockworkyields',
-      },
-      {
-        label: 'Docs',
-        href: 'https://app.gitbook.com/@clockworkyields/s/clockwork/',
-      },
-      {
-        label: 'Medium',
-        href: 'https://clockwork-yields.medium.com/',
+        label: 'Poo',
+        href: 'https://poocoin.app/tokens/0xeF52250C313dF3321cE27290092cd9E984e6F33A',
+        external: true,
       },
     ],
   },
-//  {
-//    label: 'Audit by IB',
-//    icon: 'TicketIcon',
-//    href: 'https://github.com/ImmuneBytes/Smart-Contract-Audit-Reports/blob/main/Mozart%20Finance/Mozart%20Finance%20(PIANO)%20-%20Final%20Audit%20Report.pdf',
-//  },
+  {
+    label: 'Github',
+    icon: 'GithubIcon',
+    href: 'https://github.com/clockworkyields',
+    external: true,
+  },
+  {
+    label: 'Medium',
+    icon: 'MediumIcon',
+    href: 'https://clockwork-yields.medium.com',
+    external: true,
+  },
 ]
 
 export default config

@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useParticleBurst } from '@mozartfinance/uikit'
+import { useParticleBurst } from 'clock-uikit'
 import { useLocation } from 'react-router-dom'
 
 const disableWhenNotChristmas = () => {
@@ -21,7 +21,7 @@ const disableWhenNotChristmas = () => {
 const useMerryChristmas = () => {
   const { pathname } = useLocation()
   const { initialize, teardown } = useParticleBurst({
-    imgSrc: '/images/bunny-santa.svg',
+    imgSrc: 'https://raw.githubusercontent.com/blzd-dev/blzd-frontend/master/public/images/bunny-santa.svg',
     disableWhen: disableWhenNotChristmas,
     debounceDuration: 1000,
   })

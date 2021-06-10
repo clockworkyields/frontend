@@ -1,18 +1,18 @@
 import { useEffect } from 'react'
-import { usePriceCakeBusd } from 'state/hooks'
+import { usePriceBlzdBusd } from 'state/hooks'
 
 const useGetDocumentTitlePrice = () => {
-  const cakePriceUsd = usePriceCakeBusd()
+  const blzdPriceUsd = usePriceBlzdBusd()
 
-  const cakePriceUsdString = cakePriceUsd.eq(0)
+  const blzdPriceUsdString = blzdPriceUsd.eq(0)
     ? ''
-    : ` - $${cakePriceUsd.toNumber().toLocaleString(undefined, {
+    : ` - $${blzdPriceUsd.toNumber().toLocaleString(undefined, {
         minimumFractionDigits: 3,
         maximumFractionDigits: 3,
       })}`
 
   useEffect(() => {
-    document.title = `Clockwork Yields${cakePriceUsdString}`
-  }, [cakePriceUsdString])
+    document.title = `CLOCKWORK YIELDS${blzdPriceUsdString}`
+  }, [blzdPriceUsdString])
 }
 export default useGetDocumentTitlePrice

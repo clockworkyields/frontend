@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useRouteMatch, Link } from 'react-router-dom'
-import { ButtonMenu, ButtonMenuItem } from '@mozartfinance/uikit'
+import { ButtonMenu, ButtonMenuItem } from 'clock-uikit'
 import useI18n from 'hooks/useI18n'
 
 const FarmTabButtons = () => {
@@ -10,12 +10,12 @@ const FarmTabButtons = () => {
 
   return (
     <Wrapper>
-      <ButtonMenu activeIndex={isExact ? 0 : 1} scale="sm" variant="subtle">
+      <ButtonMenu activeIndex={!isExact ? 1 : 0} scale="sm" variant="subtle">
         <ButtonMenuItem as={Link} to={`${url}`}>
-          {TranslateString(1198, 'Live')}
+          {TranslateString(999, 'Active')}
         </ButtonMenuItem>
         <ButtonMenuItem as={Link} to={`${url}/history`}>
-          {TranslateString(388, 'Finished')}
+          {TranslateString(999, 'Inactive')}
         </ButtonMenuItem>
       </ButtonMenu>
     </Wrapper>
@@ -28,13 +28,5 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
-  a {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-
-  ${({ theme }) => theme.mediaQueries.sm} {
-    margin-left: 16px;
-  }
+  margin-bottom: 32px;
 `

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Text } from '@mozartfinance/uikit'
+import { Text } from 'clock-uikit'
 import formatLotteryDate from '../helpers/formatLotteryDate'
 
 const Wrapper = styled.div`

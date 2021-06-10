@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Modal } from '@mozartfinance/uikit'
+import { Button, Modal } from 'clock-uikit'
 import ModalActions from 'components/ModalActions'
 import styled from 'styled-components'
 import useI18n from 'hooks/useI18n'
@@ -14,7 +14,7 @@ const WarningModal: React.FC<{ onDismiss?: () => void }> = ({ onDismiss }) => {
         <br />
         {TranslateString(470, 'Your CAKE will not be returned to you after you spend it to buy tickets.')}
         <br />
-        {TranslateString(472, 'Tickets are only valid for one lottery draw, and will be burned after the draw.')}
+        {TranslateString(472, 'Tickets are only valid for one lottery draw, and will be burnedafter the draw.')}
         <br />
         {TranslateString(
           474,
@@ -22,9 +22,7 @@ const WarningModal: React.FC<{ onDismiss?: () => void }> = ({ onDismiss }) => {
         )}
       </TicketsList>
       <ModalActions>
-        <Button width="100%" onClick={onDismiss}>
-          {TranslateString(476, 'I understand')}
-        </Button>
+        <Button onClick={onDismiss}>{TranslateString(476, 'I understand')}</Button>
       </ModalActions>
     </Modal>
   )

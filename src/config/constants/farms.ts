@@ -1,119 +1,208 @@
-import tokens from './tokens'
-import { FarmConfig } from './types'
+import contracts from './contracts'
+import { FarmConfig, QuoteToken } from './types'
 
 const farms: FarmConfig[] = [
   {
-    pid: 0,
-    lpSymbol: 'CLOCK',
-    lpAddresses: {
-      56: '0xd46936677B2C1Bb696F2b67c55239331E2b7Cd42',
-      97: '',
-    },
-    token: tokens.foam,
-    quoteToken: tokens.wbnb,
-  },
-  {
     pid: 1,
-    lpSymbol: 'CLOCK-BNB LP',
+    lpSymbol: 'CLOCK-BUSD LP',
     lpAddresses: {
-      56: '0xb40AE531Da43F7D114F2E6D9c331171Ef4130f5F',
       97: '',
+      56: '0xE9C53B5Ab0C9cDBd72A03151a628863C28c55A6A',
     },
-    token: tokens.clock,
-    quoteToken: tokens.wbnb,
+    tokenSymbol: 'CLOCK',
+    tokenAddresses: {
+      97: '',
+      56: '0x57067A6BD75c0E95a6A5f158455926e43E79BeB0',
+    },
+    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenAdresses: contracts.busd,
   },
   {
     pid: 2,
-    lpSymbol: 'CLOCK-BUSD LP',
+    lpSymbol: 'CLOCK-BNB LP',
     lpAddresses: {
-      56: '0xd8D201CeBC25c39AD3E05536F94ECc3B6Bc8cAcc',
       97: '',
+      56: '0x27A5a5c1fF96447F2a0c4baDcF26E7c65C040E3C',
     },
-    token: tokens.clock,
-    quoteToken: tokens.busd,
+    tokenSymbol: 'CLOCK',
+    tokenAddresses: {
+      97: '',
+      56: '0x57067A6BD75c0E95a6A5f158455926e43E79BeB0',
+    },
+    quoteTokenSymbol: QuoteToken.BNB,
+    quoteTokenAdresses: contracts.wbnb,
   },
   {
     pid: 3,
-    lpSymbol: 'BTC-BNB LP',
+    lpSymbol: 'BNB-BUSD LP',
     lpAddresses: {
-      56: '0x0E7197386A37c0D792D9D357D59f89b679cf1b06',
       97: '',
+      56: '0x1B96B92314C44b159149f7E0303511fB2Fc4774f',
     },
-    token: tokens.clock,
-    quoteToken: tokens.cake,
+    tokenSymbol: 'BNB',
+    tokenAddresses: {
+      97: '',
+      56: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
+    },
+    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenAdresses: contracts.busd,
   },
   {
     pid: 4,
-    lpSymbol: 'BUSD-BNB LP',
+    lpSymbol: 'BTCB-BNB LP',
     lpAddresses: {
-      56: '0x1b96b92314c44b159149f7e0303511fb2fc4774f',
-      97: ''
+      97: '',
+      56: '0x7561eee90e24f3b348e1087a005f78b4c8453524',
     },
-    token: tokens.busd,
-    quoteToken: tokens.wbnb,
+    tokenSymbol: 'BTCB',
+    tokenAddresses: {
+      97: '',
+      56: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+    },
+    quoteTokenSymbol: QuoteToken.BNB,
+    quoteTokenAdresses: contracts.wbnb,
   },
   {
     pid: 5,
-    lpSymbol: 'FUEL-BNB LP',
+    lpSymbol: 'ETH-BNB LP',
     lpAddresses: {
-      56: '0x680dd100e4b394bda26a59dd5c119a391e747d18',
-      97: ''
+      97: '',
+      56: '0x70d8929d04b60af4fb9b58713ebcf18765ade422',
     },
-    token: tokens.usdc,
-    quoteToken: tokens.busd,
-  },
-  {
-    pid: 6,
-    lpSymbol: 'CAKE-BNB LP',
-    lpAddresses: {
-      56: '0xa527a61703d82139f8a06bc30097cc9caa2df5a6',
-      97: ''
+    tokenSymbol: 'ETH',
+    tokenAddresses: {
+      97: '',
+      56: '0x2170Ed0880ac9A755fd29B2688956BD959F933F8',
     },
-    token: tokens.cake,
-    quoteToken: tokens.wbnb,
-  },
-  {
-    pid: 8,
-    lpSymbol: 'CLOCK-ALLOY LP',
-    lpAddresses: {
-      56: '0xfFeb22c6143B982699E2dcBafBb0EAC51d0F408E',
-      97: ''
-    },
-    token: tokens.clock,
-    quoteToken: tokens.ada,
-  },
-  {
-    pid: 9,
-    lpSymbol: 'CLOCK-BTD LP',
-    lpAddresses: {
-      56: '0xe3905652c879d9df7319b5756350dd2bb5e052e9',
-      97: ''
-    },
-    token: tokens.clock,
-    quoteToken: tokens.dot,
-  },
-  {
-    pid: 10,
-    lpSymbol: 'HYPER-BNB LP',
-    lpAddresses: {
-      56: '0xc15fa3e22c912a276550f3e5fe3b0deb87b55acd',
-      97: ''
-    },
-    token: tokens.usdt,
-    quoteToken: tokens.busd,
+    quoteTokenSymbol: QuoteToken.BNB,
+    quoteTokenAdresses: contracts.wbnb,
   },
   {
     pid: 11,
-    lpSymbol: 'CDMC-BNB LP',
+    lpSymbol: 'DOT-BNB LP',
     lpAddresses: {
-      56: '0x84cd882a0abaf8ad69b85fef0a8d5a36f5c0ecc1',
-      97: ''
+      97: '',
+      56: '0xbCD62661A6b1DEd703585d3aF7d7649Ef4dcDB5c',
     },
-    token: tokens.dot,
-    quoteToken: tokens.eth,
+    tokenSymbol: 'DOT',
+    tokenAddresses: {
+      97: '',
+      56: '0x7083609fCE4d1d8Dc0C979AAb8c869Ea2C873402',
+    },
+    quoteTokenSymbol: QuoteToken.BNB,
+    quoteTokenAdresses: contracts.wbnb,
   },
-
-
+  {
+    pid: 6,
+    lpSymbol: 'CAKE-BUSD LP',
+    lpAddresses: {
+      97: '',
+      56: '0x0ed8e0a2d99643e1e65cca22ed4424090b8b7458',
+    },
+    tokenSymbol: 'CAKE',
+    tokenAddresses: {
+      97: '',
+      56: '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
+    },
+    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenAdresses: contracts.busd,
+  },
+  {
+    pid: 7,
+    lpSymbol: 'CAKE-BNB LP',
+    lpAddresses: {
+      97: '',
+      56: '0xa527a61703d82139f8a06bc30097cc9caa2df5a6',
+    },
+    tokenSymbol: 'CAKE',
+    tokenAddresses: {
+      97: '',
+      56: '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
+    },
+    quoteTokenSymbol: QuoteToken.BNB,
+    quoteTokenAdresses: contracts.wbnb,
+  },
+  // caves
+  {
+    pid: 0,
+    isTokenOnly: true,
+    lpSymbol: 'BLZD',
+    lpAddresses: {
+      97: '',
+      56: '0xE9C53B5Ab0C9cDBd72A03151a628863C28c55A6A', // BLZD-BUSD LP
+    },
+    tokenSymbol: 'BLZD',
+    tokenAddresses: {
+      97: '',
+      56: '0x57067A6BD75c0E95a6A5f158455926e43E79BeB0',
+    },
+    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenAdresses: contracts.busd,
+  },
+  {
+    pid: 8,
+    isTokenOnly: true,
+    lpSymbol: 'ALLOY',
+    lpAddresses: {
+      97: '',
+      56: '0x4bE10283b2183032BE35E6537C9737DF5a3F6C4A', // ALLOY-BNB LP
+    },
+    tokenSymbol: 'ALLOY',
+    tokenAddresses: {
+      97: '',
+      56: '0x5eF5994fA33FF4eB6c82d51ee1DC145c546065Bd',
+    },
+    quoteTokenSymbol: QuoteToken.BNB,
+    quoteTokenAdresses: contracts.wbnb,
+  },
+  {
+    pid: 9,
+    isTokenOnly: true,
+    lpSymbol: 'BIFI',
+    lpAddresses: {
+      97: '',
+      56: '0xd132D2C24F29EE8ABb64a66559d1b7aa627Bd7fD', // BIFI-BNB LP
+    },
+    tokenSymbol: 'BIFI',
+    tokenAddresses: {
+      97: '',
+      56: '0xCa3F508B8e4Dd382eE878A314789373D80A5190A',
+    },
+    quoteTokenSymbol: QuoteToken.BNB,
+    quoteTokenAdresses: contracts.wbnb,
+  },
+  {
+    pid: 10,
+    isTokenOnly: true,
+    lpSymbol: 'vBSWAP',
+    lpAddresses: {
+      97: '',
+      56: '0x8DD39f0a49160cDa5ef1E2a2fA7396EEc7DA8267', // vBSWAP-BNB LP
+    },
+    tokenSymbol: 'vBSWAP',
+    tokenAddresses: {
+      97: '',
+      56: '0x4f0ed527e8A95ecAA132Af214dFd41F30b361600',
+    },
+    quoteTokenSymbol: QuoteToken.BNB,
+    quoteTokenAdresses: contracts.wbnb,
+  },
+  {
+    pid: 12,
+    isTokenOnly: true,
+    lpSymbol: 'WATCH',
+    lpAddresses: {
+      97: '',
+      56: '0xdC6C130299E53ACD2CC2D291fa10552CA2198a6b', // WATCH-BNB LP
+    },
+    tokenSymbol: 'WATCH',
+    tokenAddresses: {
+      97: '',
+      56: '0x7A9f28EB62C791422Aa23CeAE1dA9C847cBeC9b0',
+    },
+    quoteTokenSymbol: QuoteToken.BNB,
+    quoteTokenAdresses: contracts.wbnb,
+  },
 ]
 
 export default farms

@@ -1,27 +1,14 @@
-import { useEffect, useMemo } from 'react'
 import BigNumber from 'bignumber.js'
-import { kebabCase } from 'lodash'
-import { useWeb3React } from '@web3-react/core'
-import { Toast, toastTypes } from '@mozartfinance/uikit'
+import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Team } from 'config/constants/types'
-import { getWeb3NoAccount } from 'utils/web3'
 import useRefresh from 'hooks/useRefresh'
-import {
-  fetchFarmsPublicDataAsync,
-  fetchPoolsPublicDataAsync,
-  fetchPoolsUserDataAsync,
-  push as pushToast,
-  remove as removeToast,
-  clear as clearToast,
-  setBlock,
-} from './actions'
-import { State, Farm, Pool, ProfileState, TeamsState, AchievementState, PriceState } from './types'
-import { fetchProfile } from './profile'
-import { fetchTeam, fetchTeams } from './teams'
-import { fetchAchievements } from './achievements'
+import { getWeb3NoAccount } from 'utils/web3'
+import { fetchFarmsPublicDataAsync, fetchPoolsUserDataAsync, fetchPoolsPublicDataAsync, setBlock } from './actions'
+import { State, Farm, Pool, Block, PriceState } from './types'
+import { QuoteToken } from '../config/constants/types'
 import { fetchPrices } from './prices'
-import {getBalanceNumber} from "../utils/formatBalance";
+
+const ZERO = new BigNumber(0)
 
 export const useFetchPublicData = () => {
   const dispatch = useDispatch()
@@ -90,90 +77,40 @@ export const usePoolFromPid = (sousId): Pool => {
   return pool
 }
 
-// Toasts
-export const useToast = () => {
-  const dispatch = useDispatch()
-  const helpers = useMemo(() => {
-    const push = (toast: Toast) => dispatch(pushToast(toast))
+// Prices
 
-    return {
-      toastError: (title: string, description?: string) => {
-        return push({ id: kebabCase(title), type: toastTypes.DANGER, title, description })
-      },
-      toastInfo: (title: string, description?: string) => {
-        return push({ id: kebabCase(title), type: toastTypes.INFO, title, description })
-      },
-      toastSuccess: (title: string, description?: string) => {
-        return push({ id: kebabCase(title), type: toastTypes.SUCCESS, title, description })
-      },
-      toastWarning: (title: string, description?: string) => {
-        return push({ id: kebabCase(title), type: toastTypes.WARNING, title, description })
-      },
-      push,
-      remove: (id: string) => dispatch(removeToast(id)),
-      clear: () => dispatch(clearToast()),
+export const usePriceBnbBusd = (): BigNumber => {
+  const pid = 3 // BNB-BUSD LP
+  const farm = useFarmFromPid(pid)
+  return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO
+}
+
+export const usePriceBlzdBusd = (): BigNumber => {
+  const pid = 1 // BLZD-BUSD LP
+  const farm = useFarmFromPid(pid)
+  return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO
+}
+
+export const useTotalValue = (): BigNumber => {
+  const farms = useFarms()
+  const bnbPrice = usePriceBnbBusd()
+  const blzdPrice = usePriceBlzdBusd()
+  let value = new BigNumber(0)
+  for (let i = 0; i < farms.length; i++) {
+    const farm = farms[i]
+    if (farm.lpTotalInQuoteToken) {
+      let val
+      if (farm.quoteTokenSymbol === QuoteToken.BNB) {
+        val = bnbPrice.times(farm.lpTotalInQuoteToken)
+      } else if (farm.quoteTokenSymbol === QuoteToken.BLZD) {
+        val = blzdPrice.times(farm.lpTotalInQuoteToken)
+      } else {
+        val = farm.lpTotalInQuoteToken
+      }
+      value = value.plus(val)
     }
-  }, [dispatch])
-
-  return helpers
-}
-
-// Profile
-
-export const useFetchProfile = () => {
-  const { account } = useWeb3React()
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(fetchProfile(account))
-  }, [account, dispatch])
-}
-
-export const useProfile = () => {
-  const { isInitialized, isLoading, data, hasRegistered }: ProfileState = useSelector((state: State) => state.profile)
-  return { profile: data, hasProfile: isInitialized && hasRegistered, isInitialized, isLoading }
-}
-
-// Teams
-
-export const useTeam = (id: number) => {
-  const team: Team = useSelector((state: State) => state.teams.data[id])
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(fetchTeam(id))
-  }, [id, dispatch])
-
-  return team
-}
-
-export const useTeams = () => {
-  const { isInitialized, isLoading, data }: TeamsState = useSelector((state: State) => state.teams)
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(fetchTeams())
-  }, [dispatch])
-
-  return { teams: data, isInitialized, isLoading }
-}
-
-// Achievements
-
-export const useFetchAchievements = () => {
-  const { account } = useWeb3React()
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    if (account) {
-      dispatch(fetchAchievements(account))
-    }
-  }, [account, dispatch])
-}
-
-export const useAchievements = () => {
-  const achievements: AchievementState['data'] = useSelector((state: State) => state.achievements.data)
-  return achievements
+  }
+  return value
 }
 
 // Prices
@@ -193,58 +130,19 @@ export const useGetApiPrices = () => {
 
 export const useGetApiPrice = (token: string) => {
   const prices = useGetApiPrices()
+  let tokenSymbol = token.toLowerCase()
 
   if (!prices) {
     return null
   }
 
-  return prices[token.toLowerCase()]
-}
+  if (tokenSymbol === 'bnb') tokenSymbol = 'wbnb'
+  if (tokenSymbol === 'btc') tokenSymbol = 'btcb'
 
-export const usePriceCakeBusd = (): BigNumber => {
-  const ZERO = new BigNumber(0)
-  const cakeBnbFarm = useFarmFromPid(1)
-  const bnbBusdFarm = useFarmFromPid(4)
-
-  const bnbBusdPrice = bnbBusdFarm.tokenPriceVsQuote ? new BigNumber(1).div(bnbBusdFarm.tokenPriceVsQuote) : ZERO
-  const cakeBusdPrice = cakeBnbFarm.tokenPriceVsQuote ? bnbBusdPrice.times(cakeBnbFarm.tokenPriceVsQuote) : ZERO
-
-  return cakeBusdPrice
+  return prices[tokenSymbol]
 }
 
 // Block
-export const useBlock = () => {
+export const useBlock = (): Block => {
   return useSelector((state: State) => state.block)
-}
-
-export const useInitialBlock = () => {
-  return useSelector((state: State) => state.block.initialBlock)
-}
-
-export const usePoolsEx = (): Pool[] => {
-  const pools = useSelector((state: State) => state.pools.data)
-  return pools
-}
-
-export const useTotalValue = (): BigNumber => {
-  const prices = useGetApiPrices()
-  const farms = useFarms()
-  const pools = usePoolsEx()
-
-  let value = new BigNumber(0)
-  if(prices) {
-    for (let i = 0; i < farms.length; i++) {
-      const farm = farms[i]
-      const quoteTokenPriceUsd = prices[farm.quoteToken.symbol.toLowerCase()]
-      const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(quoteTokenPriceUsd)
-      value = value.plus(totalLiquidity);
-    }
-    for (let i = 0; i < pools.length; i++) {
-      const pool = pools[i]
-      const quoteTokenPriceUsd = prices[pool.stakingToken.symbol.toLowerCase()]
-      const totalLiquidity = new BigNumber(getBalanceNumber(pool.totalStaked, pool.stakingToken.decimals)).times(quoteTokenPriceUsd)
-      value = value.plus(totalLiquidity);
-    }
-  }
-  return value;
 }

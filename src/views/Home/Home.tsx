@@ -1,18 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Heading, Text, BaseLayout } from '@mozartfinance/uikit'
+import { Heading, Text, BaseLayout } from 'clock-uikit'
 import useI18n from 'hooks/useI18n'
 import Page from 'components/layout/Page'
-import FarmStakingCard from 'views/Home/components/FarmStakingCard'
-import CakeStats from 'views/Home/components/CakeStats'
-import TotalValueLockedCard from 'views/Home/components/TotalValueLockedCard'
-import EarnAPYCard from 'views/Home/components/EarnAPYCard'
-import EarnAssetCard from 'views/Home/components/EarnAssetCard'
-import WinCard from 'views/Home/components/WinCard'
+import FarmStakingCard from './components/FarmStakingCard'
+// import LotteryCard from './components/LotteryCard'
+import BlzdStats from './components/BlzdStats'
+import TotalValueLockedCard from './components/TotalValueLockedCard'
+// import TwitterCard from './components/TwitterCard'
 
 const Hero = styled.div`
   align-items: center;
-  background-image: url('/images/eye.gif');
+  background-image: url('https://raw.githubusercontent.com/clockworkyields/clock-frontend/master/public/images/sticker.png');
+  background-size: 110px;
   background-repeat: no-repeat;
   background-position: top center;
   display: flex;
@@ -22,36 +22,14 @@ const Hero = styled.div`
   margin-bottom: 32px;
   padding-top: 116px;
   text-align: center;
-  height: 60px;
-  padding-top: 0;
-  background-position: left center, right center;
-  background-size: contain;
-
-
-  @media (max-width: 840px) {
-    background-image: none;
-    background-position: left center, right center;
-    height: 165px;
-    padding-top: 0;
-    background-position: left center, right center;
-    background-size: contain;
-  }
-
-  @media (min-width: 1170px) {
-    background-image: url('/images/eye.gif');
-    background-position: left center, right center;
-    height: 165px;
-    padding-top: 0;
-    background-position: left center, right center;
-    background-size: contain;
-  }
 
   ${({ theme }) => theme.mediaQueries.lg} {
-
-  }
-
-  ${({ theme }) => theme.mediaQueries.xs} {
-
+    background-image: url('https://raw.githubusercontent.com/clockworkyields/clock-frontend/master/public/images/sticker.png'),
+      url('https://raw.githubusercontent.com/clockworkyields/clock-frontend/master/public/images/sticker2.png');
+    background-size: 198px;
+    background-position: left center, right center;
+    height: 165px;
+    padding-top: 0;
   }
 `
 
@@ -78,34 +56,13 @@ const Cards = styled(BaseLayout)`
   }
 `
 
-const CTACards = styled(BaseLayout)`
-  align-items: start;
-  margin-bottom: 32px;
-
-  & > div {
-    grid-column: span 6;
-  }
-
-  ${({ theme }) => theme.mediaQueries.sm} {
-    & > div {
-      grid-column: span 8;
-    }
-  }
-
-  ${({ theme }) => theme.mediaQueries.lg} {
-    & > div {
-      grid-column: span 4;
-    }
-  }
-`
-
 const Home: React.FC = () => {
   const TranslateString = useI18n()
 
   return (
     <Page>
       <Hero>
-        <Heading as="h1" size="xl" mb="24px" color="secondary" fontSize="80px">
+        <Heading as="h1" size="xl" mb="24px" color="primary">
           {TranslateString(576, 'Clockwork Yields')}
         </Heading>
         <Text>{TranslateString(578, `Yield Farm using Hyperswap LP's, Liquidity Locking Protocol, and much more to come`)}</Text>
@@ -113,16 +70,11 @@ const Home: React.FC = () => {
       <div>
         <Cards>
           <FarmStakingCard />
-        </Cards>
-        <CTACards>
-          <EarnAPYCard />
-          <EarnAssetCard />
-        </CTACards>
-        <Cards>
-          <CakeStats />
-          <TotalValueLockedCard />
+          <BlzdStats />
         </Cards>
       </div>
+      <TotalValueLockedCard />
+      {/* <TwitterCard/> */}
     </Page>
   )
 }

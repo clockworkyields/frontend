@@ -1,8 +1,8 @@
 import BigNumber from 'bignumber.js'
 import React, { useCallback, useState } from 'react'
 import styled from 'styled-components'
-import {Button, IconButton, useModal, AddIcon, Image, Text, Skeleton, Flex} from '@mozartfinance/uikit'
-import { useWeb3React } from '@web3-react/core'
+import { Button, IconButton, useModal, AddIcon, Image } from 'clock-uikit'
+import { useWallet } from '@binance-chain/bsc-use-wallet'
 import UnlockButton from 'components/UnlockButton'
 import Label from 'components/Label'
 import { useERC20 } from 'hooks/useContract'
@@ -11,14 +11,14 @@ import useI18n from 'hooks/useI18n'
 import { useSousStake } from 'hooks/useStake'
 import { useSousUnstake } from 'hooks/useUnstake'
 import { getBalanceNumber } from 'utils/formatBalance'
-import { getPoolApy, getFarmApy } from 'utils/apy'
+import { getPoolApy } from 'utils/apy'
 import { getAddress } from 'utils/addressHelpers'
 import { useSousHarvest } from 'hooks/useHarvest'
 import Balance from 'components/Balance'
 import { PoolCategory } from 'config/constants/types'
 import tokens from 'config/constants/tokens'
 import { Pool } from 'state/types'
-import {useGetApiPrice, useGetApiPrices} from 'state/hooks'
+import { useGetApiPrice } from 'state/hooks'
 import DepositModal from './DepositModal'
 import WithdrawModal from './WithdrawModal'
 import CompoundModal from './CompoundModal'
@@ -27,8 +27,6 @@ import Card from './Card'
 import OldSyrupTitle from './OldSyrupTitle'
 import HarvestButton from './HarvestButton'
 import CardFooter from './CardFooter'
-import ApyButton from "../../Farms/components/FarmCard/ApyButton";
-import {BASE_ADD_LIQUIDITY_URL} from "../../../config";
 
 interface HarvestProps {
   pool: Pool
@@ -53,7 +51,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   const isBnbPool = poolCategory === PoolCategory.BINANCE
   const TranslateString = useI18n()
   const stakingTokenContract = useERC20(stakingToken.address ? getAddress(stakingToken.address) : '')
-  const { account } = useWeb3React()
+  const { account } = useWallet()
   const { onApprove } = useSousApprove(stakingTokenContract, sousId)
   const { onStake } = useSousStake(sousId, isBnbPool)
   const { onUnstake } = useSousUnstake(sousId)
@@ -69,7 +67,6 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
     parseFloat(pool.tokenPerBlock),
   )
 
-
   const [requestedApproval, setRequestedApproval] = useState(false)
   const [pendingTx, setPendingTx] = useState(false)
 
@@ -78,7 +75,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   const stakedBalance = new BigNumber(userData?.stakedBalance || 0)
   const earnings = new BigNumber(userData?.pendingReward || 0)
 
-  const isOldSyrup = stakingToken.symbol === tokens.foam.symbol
+  const isOldSyrup = stakingToken.symbol === tokens.syrup.symbol
   const accountHasStakedBalance = stakedBalance?.toNumber() > 0
   const needsApproval = !accountHasStakedBalance && !allowance.toNumber() && !isBnbPool
   const isCardActive = isFinished && accountHasStakedBalance
@@ -89,12 +86,12 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
       max={stakingLimit && stakingTokenBalance.isGreaterThan(convertedLimit) ? convertedLimit : stakingTokenBalance}
       onConfirm={onStake}
       tokenName={stakingLimit ? `${stakingToken.symbol} (${stakingLimit} max)` : stakingToken.symbol}
-      stakingTokenDecimals={stakingToken.decimals}
+      // stakingTokenDecimals={stakingToken.decimals}
     />,
   )
 
   const [onPresentCompound] = useModal(
-    <CompoundModal earnings={earnings} onConfirm={onStake} tokenName={stakingToken.symbol}/>,
+    <CompoundModal earnings={earnings} onConfirm={onStake} tokenName={stakingToken.symbol} />,
   )
   const poolImage = `${pool.earningToken.symbol}-${pool.stakingToken.symbol}.png`.toLocaleLowerCase()
   const [onPresentWithdraw] = useModal(
@@ -102,7 +99,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
       max={stakedBalance}
       onConfirm={onUnstake}
       tokenName={stakingToken.symbol}
-      stakingTokenDecimals={stakingToken.decimals}
+      // stakingTokenDecimals={stakingToken.decimals}
     />,
   )
 
@@ -119,28 +116,26 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
     }
   }, [onApprove, setRequestedApproval])
 
-  const farmAPY = apy && apy.toLocaleString('en-US', { maximumFractionDigits: 2 })
-
-  const addLiquidityUrl = `https://bscscan.com/address/${pool.earningToken.address[56]}`
-
   return (
     <Card isActive={isCardActive} isFinished={isFinished && sousId !== 0}>
       {isFinished && sousId !== 0 && <PoolFinishedSash />}
       <div style={{ padding: '24px' }}>
         <CardTitle isFinished={isFinished && sousId !== 0}>
           {isOldSyrup && '[OLD]'} {earningToken.symbol} {TranslateString(348, 'Pool')}
-          {stakingToken.symbol === 'PIANO' ? (
-              <Text fontSize="12px">You need at least 1% in your wallet for computing</Text>
-          ) : ''}
         </CardTitle>
         <div style={{ marginBottom: '8px', display: 'flex', alignItems: 'center' }}>
           <div style={{ flex: 1 }}>
-            <Image src={`/images/pools/${poolImage}`} alt={earningToken.symbol} width={64} height={64} />
+            <Image
+              src={`https://raw.githubusercontent.com/blzd-dev/blzd-frontend/master/public/images/pools/${poolImage}`}
+              alt={earningToken.symbol}
+              width={64}
+              height={64}
+            />
           </div>
           {account && harvest && !isOldSyrup && (
             <HarvestButton
               disabled={!earnings.toNumber() || pendingTx}
-              text={pendingTx ? TranslateString(999, 'Collecting') : TranslateString(562, 'Harvest')}
+              text={pendingTx ? 'Collecting' : 'Harvest'}
               onClick={async () => {
                 setPendingTx(true)
                 await onReward()
@@ -177,11 +172,12 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
               <>
                 <Button
                   disabled={stakedBalance.eq(new BigNumber(0)) || pendingTx}
+                  style={{ width: '80%' }}
                   onClick={
                     isOldSyrup
                       ? async () => {
                           setPendingTx(true)
-                          await onUnstake('0', stakingToken.decimals)
+                          await onUnstake('0')
                           setPendingTx(false)
                         }
                       : onPresentWithdraw
@@ -191,7 +187,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
                 </Button>
                 <StyledActionSpacer />
                 {!isOldSyrup && (
-                  <IconButton disabled={isFinished && sousId !== 0} onClick={onPresentDeposit}>
+                  <IconButton style={{ width: '20%' }} disabled={isFinished && sousId !== 0} onClick={onPresentDeposit}>
                     <AddIcon color="white" />
                   </IconButton>
                 )}
@@ -200,16 +196,11 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
         </StyledCardActions>
         <StyledDetails>
           <div>{TranslateString(736, 'APR')}:</div>
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            {apy ? (
-                <>
-                  <ApyButton lpLabel="" addLiquidityUrl={addLiquidityUrl} cakePrice={new BigNumber(stakingTokenPrice)} apy={apy} />
-                  <Text bold fontSize="14px">{farmAPY}%</Text>
-                </>
-            ) : (
-                <Skeleton height={24} width={80} />
-            )}
-          </div>
+          {isFinished || isOldSyrup || !apy ? (
+            '-'
+          ) : (
+            <Balance fontSize="14px" isDisabled={isFinished} value={apy} decimals={2} unit="%" />
+          )}
         </StyledDetails>
         <StyledDetails>
           <div>{TranslateString(384, 'Your Stake')}:</div>
@@ -231,15 +222,13 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
         tokenName={earningToken.symbol}
         tokenAddress={earningToken.address ? getAddress(earningToken.address) : ''}
         tokenDecimals={earningToken.decimals}
-        stakingTokenPrice={stakingTokenPrice}
-        rewardTokenPrice={rewardTokenPrice}
       />
     </Card>
   )
 }
 
 const PoolFinishedSash = styled.div`
-  background-image: url('/images/pool-finished-sash.svg');
+  background-image: url('https://raw.githubusercontent.com/blzd-dev/blzd-frontend/master/public/images/pool-finished-sash.svg');
   background-position: top right;
   background-repeat: not-repeat;
   height: 135px;

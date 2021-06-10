@@ -1,24 +1,34 @@
 import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
-import { Heading, Card, CardBody, Button } from '@mozartfinance/uikit'
-import { useWeb3React } from '@web3-react/core'
+import { Heading, Card, CardBody, Button } from 'clock-uikit'
+import { useWallet } from '@binance-chain/bsc-use-wallet'
 import useI18n from 'hooks/useI18n'
 import { useAllHarvest } from 'hooks/useHarvest'
 import useFarmsWithBalance from 'hooks/useFarmsWithBalance'
 import UnlockButton from 'components/UnlockButton'
-import CakeHarvestBalance from './CakeHarvestBalance'
-import CakeWalletBalance from './CakeWalletBalance'
+import BlzdHarvestBalance from './BlzdHarvestBalance'
+import BlzdWalletBalance from './BlzdWalletBalance'
 
 const StyledFarmStakingCard = styled(Card)`
-
+  background-image: url('https://raw.githubusercontent.com/clockworkyields/clock-frontend/master/public/images/50.png');
+  background-size: 256px;
+  background-repeat: no-repeat;
+  background-position: top right;
+  min-height: 376px;
 `
 
 const Block = styled.div`
   margin-bottom: 16px;
 `
 
-const CardImage = styled.img`
+const TokenImageWrapper = styled.div`
+  display: flex;
+  align-items: center;
   margin-bottom: 16px;
+`
+
+const CardImage = styled.img`
+  margin-right: 8px;
 `
 
 const Label = styled.div`
@@ -32,7 +42,7 @@ const Actions = styled.div`
 
 const FarmedStakingCard = () => {
   const [pendingTx, setPendingTx] = useState(false)
-  const { account } = useWeb3React()
+  const { account } = useWallet()
   const TranslateString = useI18n()
   const farmsWithBalance = useFarmsWithBalance()
   const balancesWithValue = farmsWithBalance.filter((balanceType) => balanceType.balance.toNumber() > 0)
@@ -50,37 +60,76 @@ const FarmedStakingCard = () => {
     }
   }, [onReward])
 
+  const addWatchBlzdToken = useCallback(async () => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const provider = window.ethereum
+    if (provider) {
+      try {
+        // wasAdded is a boolean. Like any RPC method, an error may be thrown.
+        const wasAdded = await provider.request({
+          method: 'wallet_watchAsset',
+          params: {
+            type: 'ERC20',
+            options: {
+              address: '0x57067A6BD75c0E95a6A5f158455926e43E79BeB0',
+              symbol: 'BLZD',
+              decimals: '18',
+              image:
+                'https://blizzard.moneyhttps://raw.githubusercontent.com/blzd-dev/blzd-frontend/master/public/images/farms/blzd.png',
+            },
+          },
+        })
+
+        if (wasAdded) {
+          console.log('Token was added')
+        }
+      } catch (error) {
+        // TODO: find a way to handle when the user rejects transaction or it fails
+      }
+    }
+  }, [])
+
   return (
     <StyledFarmStakingCard>
       <CardBody>
         <Heading size="xl" mb="24px">
           {TranslateString(542, 'Farms & Staking')}
         </Heading>
-        <CardImage src="/images/piano.png" alt="cake logo" width={64} height={64} />
+        <TokenImageWrapper>
+          <CardImage
+            src="https://raw.githubusercontent.com/clockworkyields/clock-frontend/master/public/images/clockTokens/clock-nobackground.png"
+            alt="blzd logo"
+            width={64}
+            height={64}
+          />
+          <Button onClick={addWatchBlzdToken} scale="sm">
+            +{' '}
+            <img
+              style={{ marginLeft: 8 }}
+              width={20}
+              src="https://raw.githubusercontent.com/blzd-dev/blzd-frontend/master/public/images/wallet/metamask.png"
+              alt="metamask logo"
+            />
+          </Button>
+        </TokenImageWrapper>
         <Block>
-          <Label>{TranslateString(544, 'CLOCK to Harvest')}:</Label>
-          <CakeHarvestBalance />
+          <BlzdHarvestBalance />
+          <Label>{TranslateString(544, 'BLZD to Harvest')}</Label>
         </Block>
         <Block>
-          <Label>{TranslateString(546, 'CLOCK in Wallet')}:</Label>
-          <CakeWalletBalance />
+          <BlzdWalletBalance />
+          <Label>{TranslateString(546, 'BLZD in Wallet')}</Label>
         </Block>
         <Actions>
           {account ? (
-            <Button
-              id="harvest-all"
-              disabled={balancesWithValue.length <= 0 || pendingTx}
-              onClick={harvestAllFarms}
-              width="100%"
-            >
+            <Button id="harvest-all" disabled={balancesWithValue.length <= 0 || pendingTx} onClick={harvestAllFarms}>
               {pendingTx
-                ? TranslateString(548, 'Collecting CLOCK')
-                : TranslateString(532, `Harvest all (${balancesWithValue.length})`, {
-                    count: balancesWithValue.length,
-                  })}
+                ? TranslateString(548, 'Collecting BLZD')
+                : TranslateString(999, `Harvest all (${balancesWithValue.length})`)}
             </Button>
           ) : (
-            <UnlockButton width="100%" />
+            <UnlockButton fullWidth />
           )}
         </Actions>
       </CardBody>

@@ -4,13 +4,11 @@ import styled from 'styled-components'
 import { getBalanceNumber } from 'utils/formatBalance'
 import useI18n from 'hooks/useI18n'
 import { ChevronDown, ChevronUp } from 'react-feather'
-import { Flex, MetamaskIcon } from '@mozartfinance/uikit'
+import { Flex } from 'clock-uikit'
 import Balance from 'components/Balance'
 import { CommunityTag, CoreTag, BinanceTag } from 'components/Tags'
-import {useBlock, useGetApiPrices} from 'state/hooks'
+import { useBlock } from 'state/hooks'
 import { PoolCategory } from 'config/constants/types'
-import { registerToken } from 'utils/wallet'
-import { BASE_URL } from 'config'
 
 const tags = {
   [PoolCategory.BINANCE]: BinanceTag,
@@ -29,8 +27,6 @@ interface Props {
   endBlock: number
   isFinished: boolean
   poolCategory: PoolCategory
-  stakingTokenPrice: number
-  rewardTokenPrice: number
 }
 
 const StyledFooter = styled.div<{ isFinished: boolean }>`
@@ -55,7 +51,6 @@ const StyledDetailsButton = styled.button`
   &:hover {
     opacity: 0.9;
   }
-
   & > svg {
     margin-left: 4px;
   }
@@ -85,18 +80,13 @@ const TokenLink = styled.a`
 const CardFooter: React.FC<Props> = ({
   projectLink,
   decimals,
-  tokenAddress,
   totalStaked,
-  tokenName,
-  tokenDecimals,
   isFinished,
   startBlock,
   endBlock,
   poolCategory,
-  stakingTokenPrice,
-  rewardTokenPrice
 }) => {
-  const { currentBlock } = useBlock()
+  const { blockNumber: currentBlock } = useBlock()
   const [isOpen, setIsOpen] = useState(false)
   const TranslateString = useI18n()
   const Icon = isOpen ? ChevronUp : ChevronDown
@@ -106,12 +96,6 @@ const CardFooter: React.FC<Props> = ({
 
   const blocksUntilStart = Math.max(startBlock - currentBlock, 0)
   const blocksRemaining = Math.max(endBlock - currentBlock, 0)
-
-  const imageSrc = `${BASE_URL}/images/tokens/${tokenName.toLowerCase()}.png`
-
-  const totalLiquidity = new BigNumber(getBalanceNumber(totalStaked, decimals)).times(rewardTokenPrice)
-
-  const totalLiquidityUnitReverse = true
 
   return (
     <StyledFooter isFinished={isFinished}>
@@ -129,28 +113,17 @@ const CardFooter: React.FC<Props> = ({
             <FlexFull>
               <Label>
                 <span role="img" aria-label="syrup">
-                  {' '}
+                  ❄️{' '}
                 </span>
                 {TranslateString(408, 'Total')}
               </Label>
             </FlexFull>
             <Balance fontSize="14px" isDisabled={isFinished} value={getBalanceNumber(totalStaked, decimals)} />
           </Row>
-          <Row mb="4px">
-            <FlexFull>
-              <Label>
-                <span role="img" aria-label="syrup">
-                  {' '}
-                </span>
-                {TranslateString(408, 'Total Liquidity')}
-              </Label>
-            </FlexFull>
-            <Balance fontSize="14px" isDisabled={isFinished} value={totalLiquidity.toNumber()} unit="$" reverse={totalLiquidityUnitReverse} />
-          </Row>
           {blocksUntilStart > 0 && (
             <Row mb="4px">
               <FlexFull>
-                <Label>{TranslateString(1212, 'Start')}:</Label>
+                <Label>{TranslateString(409, 'Start')}:</Label>
               </FlexFull>
               <Balance fontSize="14px" isDisabled={isFinished} value={blocksUntilStart} decimals={0} />
             </Row>
@@ -162,14 +135,6 @@ const CardFooter: React.FC<Props> = ({
               </FlexFull>
               <Balance fontSize="14px" isDisabled={isFinished} value={blocksRemaining} decimals={0} />
             </Row>
-          )}
-          {tokenAddress && (
-            <Flex mb="4px">
-              <TokenLink onClick={() => registerToken(tokenAddress, tokenName, tokenDecimals, imageSrc)}>
-                Add {tokenName} to Metamask
-              </TokenLink>
-              <MetamaskIcon height={15} width={15} ml="4px" />
-            </Flex>
           )}
           <TokenLink href={projectLink} target="_blank">
             {TranslateString(412, 'View project site')}
