@@ -20,9 +20,9 @@ const Menu = (props) => {
       logout={reset}
       isDark={isDark}
       toggleTheme={toggleTheme}
-      currentLang={selectedLanguage && selectedLanguage.code}
+      // currentLang={selectedLanguage && selectedLanguage.code}
       langs={allLanguages}
-      setLang={setSelectedLanguage}
+      // setLang={setSelectedLanguage}
       cakePriceUsd={blzdPriceUsd.toNumber()}
       links={config}
       priceLink="https://pancakeswap.info/token/0xeF52250C313dF3321cE27290092cd9E984e6F33A"

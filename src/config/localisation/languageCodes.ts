@@ -29,11 +29,11 @@ export const UK = { code: 'uk', language: 'Українська' }
 export const VI = { code: 'vi', language: 'Tiếng Việt' }
 
 export const allLanguages = [
-  EN,
+  // EN,
   // AR,
   // CA,
-  ZHCN,
-  ZHTW,
+  // ZHCN,
+  // ZHTW,
   // CS,
   // DA,
   // DE,
