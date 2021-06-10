@@ -303,7 +303,7 @@
     {
       "data": {
         "stringId": 406,
-        "text": "Rewards are calculated per block."
+        "text": "You will also be able to stake your $CLOCK for a portion of these tokens."
       }
     },
     {
@@ -525,7 +525,7 @@
     {
       "data": {
         "stringId": 486,
-        "text": "You can unstake at any time."
+        "text": "they will send the emissions tokens and we will host the pool here. "
       }
     },
     {
@@ -771,7 +771,7 @@
     {
       "data": {
         "stringId": 580,
-        "text": "Stake CLOCK to earn new tokens."
+        "text": "Projects can rent farms on Clockwork, they can specify the desired LP to be staked,"
       }
     },
     {

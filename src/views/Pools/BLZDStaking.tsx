@@ -31,15 +31,15 @@ const Farm: React.FC = () => {
       <Hero>
         <div>
           <Heading as="h1" size="xxl" mb="16px">
-            {TranslateString(282, 'CLOCK Pool')}
+            {TranslateString(282, 'Rental Pools')}
           </Heading>
           <Heading as="h1" size="xl" mb="16px">
           {TranslateString(282, 'Coming Soon...')}
           </Heading>
           <ul>
-            <li>{TranslateString(580, 'Stake CLOCK to earn tokens.')}</li>
-            <li>{TranslateString(404, 'You can unstake at any time.')}</li>
-            <li>{TranslateString(406, 'Rewards are calculated per block.')}</li>
+            <li>{TranslateString(580, 'Projects can rent farms on Clockwork, they can specify the desired LP to be staked,')}</li>
+            <li>{TranslateString(486, 'they will send the emissions tokens and we will host the pool here. ')}</li>
+            <li>{TranslateString(406, 'You will also be able to stake your $CLOCK for a portion of these tokens.')}</li>
           </ul>
         </div>
         <div style={{ textAlign: 'right' }}>
