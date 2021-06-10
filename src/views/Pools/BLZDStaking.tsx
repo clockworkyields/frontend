@@ -33,6 +33,9 @@ const Farm: React.FC = () => {
           <Heading as="h1" size="xxl" mb="16px">
             {TranslateString(282, 'CLOCK Pool')}
           </Heading>
+          <Heading as="h1" size="xl" mb="16px">
+          {TranslateString(282, 'Coming Soon...')}
+          </Heading>
           <ul>
             <li>{TranslateString(580, 'Stake CLOCK to earn tokens.')}</li>
             <li>{TranslateString(404, 'You can unstake at any time.')}</li>

@@ -122,7 +122,7 @@ const farms: FarmConfig[] = [
     quoteTokenSymbol: QuoteToken.BNB,
     quoteTokenAdresses: contracts.wbnb,
   },
-  // caves
+  // caves/staking
   {
     pid: 0,
     isTokenOnly: true,

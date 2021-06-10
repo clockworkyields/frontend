@@ -28,9 +28,14 @@ const config: MenuEntry[] = [
     href: '/farms',
   },
   {
+    label: 'Staking',
+    icon: 'ClockIcon',
+    href: '/staking',
+  },
+  {
     label: 'Verified Rentals',
     icon: 'VerifiedIcon',
-    href: '/caves',
+    href: '/pools',
   },
   {
     label: 'Unverified Rentals',
