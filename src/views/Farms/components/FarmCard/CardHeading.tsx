@@ -35,7 +35,7 @@ const CardHeading: React.FC<ExpandableSectionProps> = ({ lpLabel, multiplier, fa
         </Flex>
       </Flex>
       <Image
-        src={`https://raw.githubusercontent.com/clockworkyields/clock-frontend/master/public/images/farms/${farmImage}.png`}
+        src={`https://raw.githubusercontent.com/clockworkyields/frontend/master/public/images/farms/${farmImage}.png`}
         // src={`https://raw.githubusercontent.com/blzd-dev/blzd-frontend/master/public/images/farms/${farmImage}.png`}
         alt={tokenSymbol}
         width={64}
