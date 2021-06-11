@@ -115,17 +115,17 @@ const FarmedStakingCard = () => {
         </TokenImageWrapper>
         <Block>
           <BlzdHarvestBalance />
-          <Label>{TranslateString(544, 'BLZD to Harvest')}</Label>
+          <Label>{TranslateString(544, 'CLOCK to Harvest')}</Label>
         </Block>
         <Block>
           <BlzdWalletBalance />
-          <Label>{TranslateString(546, 'BLZD in Wallet')}</Label>
+          <Label>{TranslateString(546, 'CLOCK in Wallet')}</Label>
         </Block>
         <Actions>
           {account ? (
             <Button id="harvest-all" disabled={balancesWithValue.length <= 0 || pendingTx} onClick={harvestAllFarms}>
               {pendingTx
-                ? TranslateString(548, 'Collecting BLZD')
+                ? TranslateString(548, 'Collecting CLOCK')
                 : TranslateString(999, `Harvest all (${balancesWithValue.length})`)}
             </Button>
           ) : (
