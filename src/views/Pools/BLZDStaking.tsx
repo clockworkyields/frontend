@@ -98,6 +98,12 @@ const Hero = styled.div`
     margin: 0;
     max-width: none;
   }
+  @media (max-width: 576px) {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    text-align: center
+  }
 `
 
 export default Farm
