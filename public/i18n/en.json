@@ -303,7 +303,7 @@
     {
       "data": {
         "stringId": 406,
-        "text": "You will also be able to stake your $CLOCK for a portion of these tokens."
+        "text": "Stake your CLOCK to earn bonus tokens"
       }
     },
     {
@@ -525,7 +525,7 @@
     {
       "data": {
         "stringId": 486,
-        "text": "they will send the emissions tokens and we will host the pool here. "
+        "text": "Send us the tokens and we will host your farm"
       }
     },
     {
@@ -771,7 +771,7 @@
     {
       "data": {
         "stringId": 580,
-        "text": "Projects can rent farms on Clockwork, they can specify the desired LP to be staked,"
+        "text": "Rent a farm!"
       }
     },
     {

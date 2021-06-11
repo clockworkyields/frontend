@@ -37,9 +37,9 @@ const Farm: React.FC = () => {
           {TranslateString(282, 'Coming Soon...')}
           </Heading>
           <ul>
-            <li>{TranslateString(580, 'Projects can rent farms on Clockwork, they can specify the desired LP to be staked,')}</li>
-            <li>{TranslateString(486, 'they will send the emissions tokens and we will host the pool here. ')}</li>
-            <li>{TranslateString(406, 'You will also be able to stake your $CLOCK for a portion of these tokens.')}</li>
+            <li>{TranslateString(580, 'Rent a farm!')}</li>
+            <li>{TranslateString(486, 'Send us the tokens and we will host your farm')}</li>
+            <li>{TranslateString(406, 'Stake your CLOCK to earn bonus tokens')}</li>
           </ul>
         </div>
         <div style={{ textAlign: 'right' }}>
