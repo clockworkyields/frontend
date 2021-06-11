@@ -12,12 +12,12 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Exchange',
-        href: 'https://swap.hyperjump.fi/#/swap?outputcurrency=0xeF52250C313dF3321cE27290092cd9E984e6F33A',
+        href: 'https://swap.hyperjump.fi/#/swap?outputcurrency=',
         external: true,
       },
       {
         label: 'Liquidity',
-        href: 'https://swap.hyperjump.fi/#/add/BNB/0xeF52250C313dF3321cE27290092cd9E984e6F33A',
+        href: 'https://swap.hyperjump.fi/#/add/BNB/',
         external: true,
       },
     ],
@@ -47,8 +47,8 @@ const config: MenuEntry[] = [
     icon: 'InfoIcon',
     items: [
       {
-        label: 'Poo',
-        href: 'https://poocoin.app/tokens/0xeF52250C313dF3321cE27290092cd9E984e6F33A',
+        label: 'Docs',
+        href: 'https://app.gitbook.com/@clockworkyields/s/clockwork/',
         external: true,
       },
     ],
