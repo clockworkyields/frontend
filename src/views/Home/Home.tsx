@@ -65,7 +65,7 @@ const Home: React.FC = () => {
         <Heading as="h1" size="xl" mb="24px" color="primary">
           {TranslateString(576, 'Clockwork Yields')}
         </Heading>
-        <Text>{TranslateString(578, `Yield Farm using Hyperswap LP's, Liquidity Locking Protocol, and much more to come`)}</Text>
+        <Text>{TranslateString(578, `Yield Farm using Hyperswap LP's, Rental Fram Platform, and much more to come`)}</Text>
       </Hero>
       <div>
         <Cards>
