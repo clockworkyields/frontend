@@ -102,7 +102,12 @@ const Hero = styled.div`
     display: flex;
     flex-flow: column;
     justify-content: center;
-    text-align: center
+    text-align: center;
+    width: 100vw;
+    
+    img {
+      width: 100%;
+    }
   }
 `
 
