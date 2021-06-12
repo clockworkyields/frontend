@@ -35,7 +35,7 @@ const TwitterCard = () => {
         <Timeline
           dataSource={{
             sourceType: 'profile',
-            screenName: 'Blizzard.money',
+            screenName: 'https://clockwork-yields.medium.com/',
           }}
           options={{
             height: '300',
