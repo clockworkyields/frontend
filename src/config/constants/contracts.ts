@@ -5,15 +5,15 @@ export default {
   },
   xblzd: {
     56: '0x367CdDA266ADa588d380C7B970244434e4Dde790',
-    97: '',
+    97: '0x1Caf576AbfaDA1da596DB247C3026679C8E55799',
   },
   clock: {
     56: '0x6d216c9925ee66ad2d037d9c3276eb203c5bdc3d',
-    97: '',
+    97: '0x1Caf576AbfaDA1da596DB247C3026679C8E55799',
   },
   masterChef: {
     56: '0x367CdDA266ADa588d380C7B970244434e4Dde790',
-    97: '',
+    97: '0xb2E21DF1c63c0017F604e5ad13997B36F0fc0952',
   },
   wbnb: {
     56: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
