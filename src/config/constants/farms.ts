@@ -6,12 +6,12 @@ const farms: FarmConfig[] = [
     pid: 1,
     lpSymbol: 'CLOCK-USDC LP',
     lpAddresses: {
-      97: '',
+      97: '0x81aCa0c535bb13e0cD2F10A3c6E4DC1b9Bbe6c0e',
       56: '0xE9C53B5Ab0C9cDBd72A03151a628863C28c55A6A',
     },
     tokenSymbol: 'CLOCK',
     tokenAddresses: {
-      97: '',
+      97: '0xed24fc36d5ee211ea25a80239fb8c4cfd80f12ee',
       56: '0x57067A6BD75c0E95a6A5f158455926e43E79BeB0',
     },
     quoteTokenSymbol: QuoteToken.BUSD,
