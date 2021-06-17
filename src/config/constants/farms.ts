@@ -3,7 +3,7 @@ import { FarmConfig, QuoteToken } from './types'
 
 const farms: FarmConfig[] = [
   {
-    pid: 1,
+    pid: 2,
     lpSymbol: 'CLOCK-USDC LP',
     lpAddresses: {
       97: '',
@@ -12,22 +12,22 @@ const farms: FarmConfig[] = [
     tokenSymbol: 'CLOCK',
     tokenAddresses: {
       97: '',
-      56: '0x57067A6BD75c0E95a6A5f158455926e43E79BeB0',
+      56: '0xA0bB7B9f0dB2FaF0eE51fAbb4502c430750Eea6F',
     },
     quoteTokenSymbol: QuoteToken.BUSD,
     quoteTokenAdresses: contracts.busd,
   },
   {
-    pid: 2,
+    pid: 1,
     lpSymbol: 'CLOCK-BNB LP',
     lpAddresses: {
       97: '',
-      56: '0x27A5a5c1fF96447F2a0c4baDcF26E7c65C040E3C',
+      56: '0xb2Fc2db05d5445FBbebCD416C3262Df529fA6538',
     },
     tokenSymbol: 'CLOCK',
     tokenAddresses: {
       97: '',
-      56: '0x57067A6BD75c0E95a6A5f158455926e43E79BeB0',
+      56: '0xA0bB7B9f0dB2FaF0eE51fAbb4502c430750Eea6F',
     },
     quoteTokenSymbol: QuoteToken.BNB,
     quoteTokenAdresses: contracts.wbnb,
@@ -134,7 +134,7 @@ const farms: FarmConfig[] = [
     tokenSymbol: 'CLOCK',
     tokenAddresses: {
       97: '',
-      56: '0x57067A6BD75c0E95a6A5f158455926e43E79BeB0',
+      56: '0xA0bB7B9f0dB2FaF0eE51fAbb4502c430750Eea6F',
     },
     quoteTokenSymbol: QuoteToken.BUSD,
     quoteTokenAdresses: contracts.busd,

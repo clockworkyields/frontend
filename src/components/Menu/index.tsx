@@ -3,7 +3,7 @@ import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { allLanguages } from 'config/localisation/languageCodes'
 import { LanguageContext } from 'contexts/Localisation/languageContext'
 import useTheme from 'hooks/useTheme'
-import { usePriceBlzdBusd } from 'state/hooks'
+import { usePriceCakeBusd } from 'state/hooks'
 import { Menu as UikitMenu } from 'clock-uikit'
 import config from './config'
 
@@ -11,7 +11,7 @@ const Menu = (props) => {
   const { account, connect, reset } = useWallet()
   const { selectedLanguage, setSelectedLanguage } = useContext(LanguageContext)
   const { isDark, toggleTheme } = useTheme()
-  const blzdPriceUsd = usePriceBlzdBusd()
+  const cakePriceUsd = usePriceCakeBusd()
 
   return (
     <UikitMenu
@@ -23,9 +23,9 @@ const Menu = (props) => {
       // currentLang={selectedLanguage && selectedLanguage.code}
       langs={allLanguages}
       // setLang={setSelectedLanguage}
-      cakePriceUsd={blzdPriceUsd.toNumber()}
+      cakePriceUsd={cakePriceUsd.toNumber()}
       links={config}
-      priceLink="https://pancakeswap.info/token/0xeF52250C313dF3321cE27290092cd9E984e6F33A"
+      priceLink="https://pancakeswap.info/token/0xA0bB7B9f0dB2FaF0eE51fAbb4502c430750Eea6F"
       {...props}
     />
   )

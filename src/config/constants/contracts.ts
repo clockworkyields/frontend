@@ -1,18 +1,18 @@
 export default {
   cake: {
-    56: '0x57067A6BD75c0E95a6A5f158455926e43E79BeB0',
+    56: '0xA0bB7B9f0dB2FaF0eE51fAbb4502c430750Eea6F',
     97: '0x1977ECbdE6832920c3554E238deDFfBC5ed996c9',
   },
   xblzd: {
-    56: '0x367CdDA266ADa588d380C7B970244434e4Dde790',
+    56: '0xbbf1f15656155c45fF509Bf111788723800d448f',
     97: '',
   },
   clock: {
-    56: '0x6d216c9925ee66ad2d037d9c3276eb203c5bdc3d',
+    56: '0xA0bB7B9f0dB2FaF0eE51fAbb4502c430750Eea6F',
     97: '',
   },
   masterChef: {
-    56: '0x367CdDA266ADa588d380C7B970244434e4Dde790',
+    56: '0xbbf1f15656155c45fF509Bf111788723800d448f',
     97: '',
   },
   wbnb: {

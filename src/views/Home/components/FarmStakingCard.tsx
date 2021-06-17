@@ -60,7 +60,7 @@ const FarmedStakingCard = () => {
     }
   }, [onReward])
 
-  const addWatchBlzdToken = useCallback(async () => {
+  const addWatchClockToken = useCallback(async () => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     const provider = window.ethereum
@@ -72,7 +72,7 @@ const FarmedStakingCard = () => {
           params: {
             type: 'ERC20',
             options: {
-              address: '0x57067A6BD75c0E95a6A5f158455926e43E79BeB0',
+              address: '0xA0bB7B9f0dB2FaF0eE51fAbb4502c430750Eea6F',
               symbol: 'BLZD',
               decimals: '18',
               image:
@@ -103,7 +103,7 @@ const FarmedStakingCard = () => {
             width={64}
             height={64}
           />
-          <Button onClick={addWatchBlzdToken} scale="sm">
+          <Button onClick={addWatchClockToken} scale="sm">
             +{' '}
             <img
               style={{ marginLeft: 8 }}
