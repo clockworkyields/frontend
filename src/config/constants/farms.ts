@@ -136,7 +136,7 @@ const farms: FarmConfig[] = [
       97: '',
       56: '0xa0bb7b9f0db2faf0ee51fabb4502c430750eea6f',
     },
-    quoteTokenSymbol: QuoteToken.WBNB,
+    quoteTokenSymbol: QuoteToken.BNB,
     quoteTokenAdresses: contracts.wbnb,
   },
   {
