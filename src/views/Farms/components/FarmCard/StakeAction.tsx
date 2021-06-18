@@ -44,7 +44,7 @@ const { onStake } = useStake(pid)
        <Button style={{ width: 107.72 }} onClick={onPresentDeposit}>
          {TranslateString(999, 'Stake')}
        </Button>
-     ) : 
+     ) 
 //(
   //     <IconButtonWrapper>
   //       <IconButton style={{ width: 52 }} variant="tertiary" onClick={onPresentWithdraw} mr="6px">
