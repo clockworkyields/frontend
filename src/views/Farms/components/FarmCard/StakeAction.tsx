@@ -44,16 +44,17 @@ const { onStake } = useStake(pid)
        <Button style={{ width: 107.72 }} onClick={onPresentDeposit}>
          {TranslateString(999, 'Stake')}
        </Button>
-     ) : (
-       <IconButtonWrapper>
-         <IconButton style={{ width: 52 }} variant="tertiary" onClick={onPresentWithdraw} mr="6px">
-           <MinusIcon color="primary" />
-         </IconButton>
-         <IconButton style={{ width: 52 }} variant="tertiary" onClick={onPresentDeposit}>
-           <AddIcon color="primary" />
-         </IconButton>
-       </IconButtonWrapper>
-     )
+     ) : 
+//(
+  //     <IconButtonWrapper>
+  //       <IconButton style={{ width: 52 }} variant="tertiary" onClick={onPresentWithdraw} mr="6px">
+  //         <MinusIcon color="primary" />
+  //       </IconButton>
+  //       <IconButton style={{ width: 52 }} variant="tertiary" onClick={onPresentDeposit}>
+  //         <AddIcon color="primary" />
+  //       </IconButton>
+  //     </IconButtonWrapper>
+  //   )
    }
 
   const renderUnstakingButtons = () => {
