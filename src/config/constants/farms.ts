@@ -18,16 +18,16 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.busd,
   },
   {
-    pid: 2,
+    pid: 1,
     lpSymbol: 'CLOCK-BNB LP',
     lpAddresses: {
       97: '',
-      56: '0x27A5a5c1fF96447F2a0c4baDcF26E7c65C040E3C',
+      56: '0xb2Fc2db05d5445FBbebCD416C3262Df529fA6538',
     },
     tokenSymbol: 'CLOCK',
     tokenAddresses: {
       97: '',
-      56: '0x57067A6BD75c0E95a6A5f158455926e43E79BeB0',
+      56: '0xa0bb7b9f0db2faf0ee51fabb4502c430750eea6f',
     },
     quoteTokenSymbol: QuoteToken.BNB,
     quoteTokenAdresses: contracts.wbnb,
@@ -78,7 +78,7 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.wbnb,
   },
   {
-    pid: 1,
+    pid: 2,
     lpSymbol: 'USDC-BNB LP',
     lpAddresses: {
       97: '0x81aCa0c535bb13e0cD2F10A3c6E4DC1b9Bbe6c0e',
@@ -129,15 +129,15 @@ const farms: FarmConfig[] = [
     lpSymbol: 'CLOCK',
     lpAddresses: {
       97: '',
-      56: '0xE9C53B5Ab0C9cDBd72A03151a628863C28c55A6A', // BLZD-BUSD LP
+      56: '0xb2Fc2db05d5445FBbebCD416C3262Df529fA6538', // BLZD-BUSD LP
     },
     tokenSymbol: 'CLOCK',
     tokenAddresses: {
       97: '',
-      56: '0x57067A6BD75c0E95a6A5f158455926e43E79BeB0',
+      56: '0xa0bb7b9f0db2faf0ee51fabb4502c430750eea6f',
     },
-    quoteTokenSymbol: QuoteToken.BUSD,
-    quoteTokenAdresses: contracts.busd,
+    quoteTokenSymbol: QuoteToken.WBNB,
+    quoteTokenAdresses: contracts.wbnb,
   },
   {
     pid: 8,
