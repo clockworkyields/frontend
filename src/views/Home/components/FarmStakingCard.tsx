@@ -99,7 +99,7 @@ const FarmedStakingCard = () => {
         <TokenImageWrapper>
           <CardImage
             src="https://raw.githubusercontent.com/clockworkyields/clock-frontend/master/public/images/clockTokens/clock-nobackground.png"
-            alt="blzd logo"
+            alt="clock logo"
             width={64}
             height={64}
           />
