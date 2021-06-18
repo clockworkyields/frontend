@@ -7,7 +7,6 @@ import {
   getCakeAddress,
   getLotteryAddress,
   getLotteryTicketAddress,
-  getxBlzdAddress,
 } from 'utils/addressHelpers'
 import { poolsConfig } from 'config/constants'
 import { PoolCategory } from 'config/constants/types'
@@ -53,7 +52,7 @@ export const useCake = () => {
 
 export const useXBlzd = () => {
   const xBlzdAbi = (xBlzd as unknown) as AbiItem
-  return useContract(xBlzdAbi, getxBlzdAddress())
+  return useContract(xBlzdAbi, getCakeAddress())
 }
 
 export const useRabbitMintingFarm = (address: string) => {

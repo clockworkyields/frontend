@@ -1135,9 +1135,9 @@
     regenerator-runtime "^0.13.4"
 
 "@babel/runtime@^7.8.7":
-  version "7.14.5"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.14.5.tgz#665450911c6031af38f81db530f387ec04cd9a98"
-  integrity sha512-121rumjddw9c3NCQ55KGkyE1h/nzWhU/owjhw0l4mQrkzz4x9SGS1X8gFLraHwX7td3Yo4QTL+qj0NcIzN87BA==
+  version "7.14.6"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.14.6.tgz#535203bc0892efc7dec60bdc27b2ecf6e409062d"
+  integrity sha512-/PCB2uJ7oM44tz8YhC4Z/6PeOKXp4K588f+5M3clr1M4zbqztlo0XEfJ2LEzj/FgwfgGcIdl8n7YYjTCI0BYwg==
   dependencies:
     regenerator-runtime "^0.13.4"
 
@@ -5393,10 +5393,10 @@ cliui@^7.0.2:
     strip-ansi "^6.0.0"
     wrap-ansi "^7.0.0"
 
-clock-uikit@^0.2.7:
-  version "0.2.7"
-  resolved "https://registry.yarnpkg.com/clock-uikit/-/clock-uikit-0.2.7.tgz#f888dd596c2bcf043250692c826928c29bf70d5f"
-  integrity sha512-QyhgCTJG/jtxIO/dwUm8uDICSgANK6r4LYzzu95RSRbiCl+RI10YbzyHX840gkDvUI5nTYnuc6cKI8sbzZ82gA==
+clock-uikit@^0.2.8:
+  version "0.2.8"
+  resolved "https://registry.yarnpkg.com/clock-uikit/-/clock-uikit-0.2.8.tgz#9c741de6c450ba46b0266889a3c31718d1979b54"
+  integrity sha512-arWKqXwYVvGqSVf78AnFQjKlAFsZxs5dfOLuT3wiCvQh8EctCvJGcsgkoAxMag4vrfl3CIeguQRs/c5km/H8Bw==
   dependencies:
     "@types/lodash" "^4.14.162"
     "@types/styled-system" "^5.1.10"

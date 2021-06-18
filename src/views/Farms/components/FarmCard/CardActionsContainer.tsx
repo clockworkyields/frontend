@@ -23,10 +23,10 @@ interface FarmCardActionsProps {
   farm: FarmWithStakedValue
   ethereum?: provider
   account?: string
-  removed: boolean
+  // removed: boolean
 }
 
-const CardActions: React.FC<FarmCardActionsProps> = ({ farm, ethereum, account, removed }) => {
+const CardActions: React.FC<FarmCardActionsProps> = ({ farm, ethereum, account }) => {
   const TranslateString = useI18n()
   const [requestedApproval, setRequestedApproval] = useState(false)
   const { pid, lpAddresses, tokenAddresses, isTokenOnly, depositFeeBP } = useFarmFromPid(farm.pid)
@@ -56,13 +56,13 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, ethereum, account, 
   }, [onApprove])
 
   const renderApprovalOrStakeButton = () => {
-    return removed || isApproved ? (
+    return isApproved ? (
       <StakeAction
         stakedBalance={stakedBalance}
         tokenBalance={tokenBalance}
         tokenName={lpName}
         pid={pid}
-        depositFeeBP={depositFeeBP}
+        // depositFeeBP={depositFeeBP}
       />
     ) : (
       <Button style={{ width: '100%' }} mt="8px" disabled={requestedApproval} onClick={handleApprove}>

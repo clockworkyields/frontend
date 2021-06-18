@@ -8,9 +8,9 @@ export const getAddress = (address: Address): string => {
   return address[chainId] ? address[chainId] : address[mainNetChainId]
 }
 
-export const getxBlzdAddress = () => {
-  return addresses.xblzd[chainId]
-}
+// export const getCakeAddress = () => {
+//   return addresses.xblzd[chainId]
+// }
 
 export const getCakeAddress = () => {
   return addresses.cake[chainId]

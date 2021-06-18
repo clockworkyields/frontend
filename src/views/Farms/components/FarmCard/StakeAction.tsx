@@ -1,12 +1,13 @@
-import React from 'react'
-// import styled from 'styled-components'
+import React, { useCallback } from 'react'
+import styled from 'styled-components'
 import BigNumber from 'bignumber.js'
-import { Button, Flex, Heading, useModal } from 'clock-uikit'
-// import useI18n from 'hooks/useI18n'
-// import useStake from 'hooks/useStake'
+import { Button, Flex, Heading, IconButton, AddIcon, MinusIcon, useModal } from 'clock-uikit'
+import { useLocation } from 'react-router-dom'
+// import { useTranslation } from 'contexts/Localization'
+import useStake from 'hooks/useStake'
 import useUnstake from 'hooks/useUnstake'
-import { getBalanceNumber } from 'utils/formatBalance'
-// import DepositModal from '../DepositModal'
+import { getBalanceNumber, getFullDisplayBalance } from 'utils/formatBalance'
+import DepositModal from '../DepositModal'
 import WithdrawModal from '../WithdrawModal'
 
 interface FarmCardActionsProps {
@@ -14,60 +15,71 @@ interface FarmCardActionsProps {
   tokenBalance?: BigNumber
   tokenName?: string
   pid?: number
-  depositFeeBP?: number
+  // addLiquidityUrl?: string
 }
 
-// const IconButtonWrapper = styled.div`
-//   display: flex;
-//   svg {
-//     width: 20px;
-//   }
-// `
+const IconButtonWrapper = styled.div`
+  display: flex;
+  svg {
+    width: 20px;
+  }
+`
 
-const StakeAction: React.FC<FarmCardActionsProps> = ({ stakedBalance, tokenName, pid }) => {
-  // const TranslateString = useI18n()
-  // const { onStake } = useStake(pid)
+const StakeAction: React.FC<FarmCardActionsProps> = ({
+  stakedBalance,
+  tokenBalance,
+  tokenName,
+  pid,
+  // addLiquidityUrl,
+}) => {
+  // const { t } = useTranslation()
+  const { onStake } = useStake(pid)
   const { onUnstake } = useUnstake(pid)
+  const location = useLocation()
 
-  const rawStakedBalance = getBalanceNumber(stakedBalance)
-  const displayBalance = rawStakedBalance.toLocaleString()
+  const displayBalance = useCallback(() => {
+    const stakedBalanceNumber = getBalanceNumber(stakedBalance)
+    if (stakedBalanceNumber > 0 && stakedBalanceNumber < 0.0001) {
+      return getFullDisplayBalance(stakedBalance).toLocaleString()
+    }
+    return stakedBalanceNumber.toLocaleString()
+  }, [stakedBalance])
 
-  // const [onPresentDeposit] = useModal(
-  //   <DepositModal max={tokenBalance} onConfirm={onStake} tokenName={tokenName} depositFeeBP={depositFeeBP} />,
-  // )
+  const [onPresentDeposit] = useModal(
+    <DepositModal max={tokenBalance} onConfirm={onStake} tokenName={tokenName} />,
+  )
   const [onPresentWithdraw] = useModal(
     <WithdrawModal max={stakedBalance} onConfirm={onUnstake} tokenName={tokenName} />,
   )
 
-  // const renderStakingButtons = () => {
-  //   return rawStakedBalance === 0 ? (
-  //     <Button style={{ width: 107.72 }} onClick={onPresentDeposit}>
-  //       {TranslateString(999, 'Stake')}
-  //     </Button>
-  //   ) : (
-  //     <IconButtonWrapper>
-  //       <IconButton style={{ width: 52 }} variant="tertiary" onClick={onPresentWithdraw} mr="6px">
-  //         <MinusIcon color="primary" />
-  //       </IconButton>
-  //       <IconButton style={{ width: 52 }} variant="tertiary" onClick={onPresentDeposit}>
-  //         <AddIcon color="primary" />
-  //       </IconButton>
-  //     </IconButtonWrapper>
-  //   )
-  // }
-
-  const renderUnstakingButtons = () => {
-    return (
-      <Button style={{ width: 107.72 }} onClick={onPresentWithdraw}>
-        Unstake
+  const renderStakingButtons = () => {
+    return stakedBalance.eq(0) ? (
+      <Button
+        onClick={onPresentDeposit}
+        disabled={['history', 'archived'].some((item) => location.pathname.includes(item))}
+      >
+        Stake LP
       </Button>
+    ) : (
+      <IconButtonWrapper>
+        <IconButton variant="tertiary" onClick={onPresentWithdraw} mr="6px">
+          <MinusIcon color="primary" width="14px" />
+        </IconButton>
+        <IconButton
+          variant="tertiary"
+          onClick={onPresentDeposit}
+          disabled={['history', 'archived'].some((item) => location.pathname.includes(item))}
+        >
+          <AddIcon color="primary" width="14px" />
+        </IconButton>
+      </IconButtonWrapper>
     )
   }
 
   return (
     <Flex justifyContent="space-between" alignItems="center">
-      <Heading color={rawStakedBalance === 0 ? 'textDisabled' : 'text'}>{displayBalance}</Heading>
-      {renderUnstakingButtons()}
+      <Heading color={stakedBalance.eq(0) ? 'textDisabled' : 'text'}>{displayBalance()}</Heading>
+      {renderStakingButtons()}
     </Flex>
   )
 }
