@@ -27,10 +27,10 @@ const BlzdStats = () => {
   const totalSupply = useTotalSupply()
   const burnedBalance = useBurnedBalance(getCakeAddress())
   const farms = useFarms()
-  const blzdPrice = usePriceCakeBusd()
+  const cakePrice = usePriceClockBusd()
   const circSupply = totalSupply ? totalSupply.minus(burnedBalance) : new BigNumber(0)
   const blzdSupply = getBalanceNumber(circSupply)
-  const marketCap = blzdPrice.times(circSupply)
+  const marketCap = cakePrice.times(circSupply)
 
   let cakePerBlock = 0
   if (farms && farms[0] && farms[0].cakePerBlock) {
