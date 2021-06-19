@@ -32,7 +32,7 @@ const BlzdStats = () => {
   const blzdSupply = getBalanceNumber(circSupply)
   const marketCap = cakePrice.times(circSupply)
 
-  let cakePerBlock = 0
+  let cakePerBlock = 1
   if (farms && farms[0] && farms[0].cakePerBlock) {
     cakePerBlock = new BigNumber(farms[0].cakePerBlock).div(new BigNumber(10).pow(18)).toNumber()
   }
