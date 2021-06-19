@@ -7,7 +7,7 @@ import { getAddress, getWbnbAddress } from 'utils/addressHelpers'
 import BigNumber from 'bignumber.js'
 
 export const fetchPoolsBlockLimits = async () => {
-  const poolsWithEnd = poolsConfig.filter((p) => p.sousId !== 0)
+  const poolsWithEnd = poolsConfig.filter((p) => p.Id !== 0)
   const callsStartBlock = poolsWithEnd.map((poolConfig) => {
     return {
       address: getAddress(poolConfig.contractAddress),
@@ -28,7 +28,7 @@ export const fetchPoolsBlockLimits = async () => {
     const startBlock = starts[index]
     const endBlock = ends[index]
     return {
-      sousId: cakePoolConfig.sousId,
+      Id: PoolConfig.Id,
       startBlock: new BigNumber(startBlock).toJSON(),
       endBlock: new BigNumber(endBlock).toJSON(),
     }
@@ -60,11 +60,11 @@ export const fetchPoolsTotalStatking = async () => {
 
   return [
     ...nonBnbPools.map((p, index) => ({
-      sousId: p.sousId,
+      Id: p.Id,
       totalStaked: new BigNumber(nonBnbPoolsTotalStaked[index]).toJSON(),
     })),
     ...bnbPool.map((p, index) => ({
-      sousId: p.sousId,
+      Id: p.Id,
       totalStaked: new BigNumber(bnbPoolsTotalStaked[index]).toJSON(),
     })),
   ]
