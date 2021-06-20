@@ -72,8 +72,8 @@ export const usePools = (account): Pool[] => {
   return pools
 }
 
-export const usePoolFromPid = (Id): Pool => {
-  const pool = useSelector((state: State) => state.pools.data.find((p) => p.Id === Id))
+export const usePoolFromPid = (sousId): Pool => {
+  const pool = useSelector((state: State) => state.pools.data.find((p) => p.sousId === sousId))
   return pool
 }
 
@@ -85,8 +85,8 @@ export const usePriceBnbBusd = (): BigNumber => {
   return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO
 }
 
-export const usePriceCakeBusd = (): BigNumber => {
-  const pid = 2 // BLZD-BUSD LP
+export const usePriceBlzdBusd = (): BigNumber => {
+  const pid = 1 // BLZD-BUSD LP
   const farm = useFarmFromPid(pid)
   return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO
 }
@@ -94,7 +94,7 @@ export const usePriceCakeBusd = (): BigNumber => {
 export const useTotalValue = (): BigNumber => {
   const farms = useFarms()
   const bnbPrice = usePriceBnbBusd()
-  const cakePrice = usePriceCakeBusd()
+  const blzdPrice = usePriceBlzdBusd()
   let value = new BigNumber(0)
   for (let i = 0; i < farms.length; i++) {
     const farm = farms[i]
@@ -102,8 +102,8 @@ export const useTotalValue = (): BigNumber => {
       let val
       if (farm.quoteTokenSymbol === QuoteToken.BNB) {
         val = bnbPrice.times(farm.lpTotalInQuoteToken)
-      } else if (farm.quoteTokenSymbol === QuoteToken.CLOCK) {
-        val = cakePrice.times(farm.lpTotalInQuoteToken)
+      } else if (farm.quoteTokenSymbol === QuoteToken.BLZD) {
+        val = blzdPrice.times(farm.lpTotalInQuoteToken)
       } else {
         val = farm.lpTotalInQuoteToken
       }
