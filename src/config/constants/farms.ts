@@ -12,7 +12,7 @@ const farms: FarmConfig[] = [
     tokenSymbol: 'CLOCK',
     tokenAddresses: {
       97: '',
-      56: '0x57067A6BD75c0E95a6A5f158455926e43E79BeB0',
+      56: '0xa0bb7b9f0db2faf0ee51fabb4502c430750eea6f',
     },
     quoteTokenSymbol: QuoteToken.BUSD,
     quoteTokenAdresses: contracts.busd,
@@ -37,12 +37,12 @@ const farms: FarmConfig[] = [
     lpSymbol: 'CLOCK-BUSD LP',
     lpAddresses: {
       97: '',
-      56: '0x9369a1F51A8acc37A005BdC22397A76a64e24Ee5',
+      56: '0xdC70e8aBE860A8B532855E6a86E715ba492ecD45',
     },
     tokenSymbol: 'CLOCK',
     tokenAddresses: {
       97: '',
-      56: '0xaB5af03653349a052B49f167f4C709599C5f3844',
+      56: '0xa0bb7b9f0db2faf0ee51fabb4502c430750eea6f',
     },
     quoteTokenSymbol: QuoteToken.BUSD,
     quoteTokenAdresses: contracts.busd,
@@ -97,7 +97,7 @@ const farms: FarmConfig[] = [
     lpSymbol: 'BNB-BUSD LP',
     lpAddresses: {
       97: '',
-      56: '0x3eAb3dBCdA7bdb72967Bcbd6C9F811627fd51AD5',
+      56: '0xf2e4E3F9B58b3eDaC88Ad11D689a23f3119a782D',
     },
     tokenSymbol: 'BNB',
     tokenAddresses: {
