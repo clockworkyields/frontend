@@ -52,12 +52,12 @@ const farms: FarmConfig[] = [
     lpSymbol: 'SPHN-BNB LP',
     lpAddresses: {
       97: '',
-      56: '0x7561eee90e24f3b348e1087a005f78b4c8453524',
+      56: '0x402E6B9F9A2959d6f4eb398071d90270a6583C73',
     },
     tokenSymbol: 'SPHN',
     tokenAddresses: {
       97: '',
-      56: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      56: '0xb58a579e8f987b52564a5fe08fe5181dc2621a9c',
     },
     quoteTokenSymbol: QuoteToken.BNB,
     quoteTokenAdresses: contracts.wbnb,
@@ -67,12 +67,12 @@ const farms: FarmConfig[] = [
     lpSymbol: 'CDMC-BNB LP',
     lpAddresses: {
       97: '',
-      56: '0x70d8929d04b60af4fb9b58713ebcf18765ade422',
+      56: '0x6aABa627f91d56e41E5bB90566d604C20bFd2407',
     },
     tokenSymbol: 'CDMC',
     tokenAddresses: {
       97: '',
-      56: '0x2170Ed0880ac9A755fd29B2688956BD959F933F8',
+      56: '0xef52250c313df3321ce27290092cd9e984e6f33a',
     },
     quoteTokenSymbol: QuoteToken.BNB,
     quoteTokenAdresses: contracts.wbnb,
@@ -82,12 +82,12 @@ const farms: FarmConfig[] = [
     lpSymbol: 'USDC-BNB LP',
     lpAddresses: {
       97: '0x81aCa0c535bb13e0cD2F10A3c6E4DC1b9Bbe6c0e',
-      56: '0xbCD62661A6b1DEd703585d3aF7d7649Ef4dcDB5c',
+      56: '0x41e080C3fd4a27aA30c73E1B2eE9D8dD1adc5501',
     },
     tokenSymbol: 'USDC',
     tokenAddresses: {
       97: '0xed24fc36d5ee211ea25a80239fb8c4cfd80f12ee',
-      56: '0x7083609fCE4d1d8Dc0C979AAb8c869Ea2C873402',
+      56: '0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d',
     },
     quoteTokenSymbol: QuoteToken.BNB,
     quoteTokenAdresses: contracts.wbnb,
@@ -112,12 +112,12 @@ const farms: FarmConfig[] = [
     lpSymbol: 'USER5-BNB LP',
     lpAddresses: {
       97: '',
-      56: '0xa527a61703d82139f8a06bc30097cc9caa2df5a6',
+      56: '0x89494c524BA3D706cC1DFB1dDb47B27CF14E0d9F',
     },
     tokenSymbol: 'USER5',
     tokenAddresses: {
       97: '',
-      56: '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
+      56: '0x81100f79eb6c3314ee8974a02fa10203c90b0e74',
     },
     quoteTokenSymbol: QuoteToken.BNB,
     quoteTokenAdresses: contracts.wbnb,
@@ -145,12 +145,12 @@ const farms: FarmConfig[] = [
     lpSymbol: 'SPHN',
     lpAddresses: {
       97: '',
-      56: '0x4bE10283b2183032BE35E6537C9737DF5a3F6C4A', // ALLOY-BNB LP
+      56: '0x402E6B9F9A2959d6f4eb398071d90270a6583C73', // SPHN-BNB LP
     },
     tokenSymbol: 'SPHN',
     tokenAddresses: {
       97: '',
-      56: '0x5eF5994fA33FF4eB6c82d51ee1DC145c546065Bd',
+      56: '0xb58a579e8f987b52564a5fe08fe5181dc2621a9c',
     },
     quoteTokenSymbol: QuoteToken.BNB,
     quoteTokenAdresses: contracts.wbnb,
@@ -161,12 +161,12 @@ const farms: FarmConfig[] = [
     lpSymbol: 'CDMC',
     lpAddresses: {
       97: '',
-      56: '0xd132D2C24F29EE8ABb64a66559d1b7aa627Bd7fD', // BIFI-BNB LP
+      56: '0x6aABa627f91d56e41E5bB90566d604C20bFd2407', // CDMC-BNB LP
     },
     tokenSymbol: 'CDMC',
     tokenAddresses: {
       97: '',
-      56: '0xCa3F508B8e4Dd382eE878A314789373D80A5190A',
+      56: '0xef52250c313df3321ce27290092cd9e984e6f33a',
     },
     quoteTokenSymbol: QuoteToken.BNB,
     quoteTokenAdresses: contracts.wbnb,
@@ -177,7 +177,7 @@ const farms: FarmConfig[] = [
     lpSymbol: 'BTD',
     lpAddresses: {
       97: '',
-      56: '0xd132D2C24F29EE8ABb64a66559d1b7aa627Bd7fD', // BIFI-BNB LP
+      56: '0x3eED3731D5360Ec6c229d09F6bf867ABb6d7aCb5', // BTD-BNB LP
     },
     tokenSymbol: 'BTD',
     tokenAddresses: {
@@ -193,12 +193,12 @@ const farms: FarmConfig[] = [
     lpSymbol: 'USDC',
     lpAddresses: {
       97: '',
-      56: '0x8DD39f0a49160cDa5ef1E2a2fA7396EEc7DA8267', // vBSWAP-BNB LP
+      56: '0x41e080C3fd4a27aA30c73E1B2eE9D8dD1adc5501', // USDC-BNB LP
     },
     tokenSymbol: 'USDC',
     tokenAddresses: {
       97: '',
-      56: '0x4f0ed527e8A95ecAA132Af214dFd41F30b361600',
+      56: '0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d',
     },
     quoteTokenSymbol: QuoteToken.BNB,
     quoteTokenAdresses: contracts.wbnb,
@@ -209,12 +209,12 @@ const farms: FarmConfig[] = [
     lpSymbol: 'USER5',
     lpAddresses: {
       97: '',
-      56: '0xdC6C130299E53ACD2CC2D291fa10552CA2198a6b', // WATCH-BNB LP
+      56: '0x89494c524BA3D706cC1DFB1dDb47B27CF14E0d9F', // USER5-BNB LP
     },
     tokenSymbol: 'USER5',
     tokenAddresses: {
       97: '',
-      56: '0x7A9f28EB62C791422Aa23CeAE1dA9C847cBeC9b0',
+      56: '0x81100f79eb6c3314ee8974a02fa10203c90b0e74',
     },
     quoteTokenSymbol: QuoteToken.BNB,
     quoteTokenAdresses: contracts.wbnb,
