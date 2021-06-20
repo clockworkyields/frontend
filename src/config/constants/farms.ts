@@ -172,6 +172,22 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.wbnb,
   },
   {
+    pid: 13,
+    isTokenOnly: true,
+    lpSymbol: 'BTD',
+    lpAddresses: {
+      97: '',
+      56: '0xd132D2C24F29EE8ABb64a66559d1b7aa627Bd7fD', // BIFI-BNB LP
+    },
+    tokenSymbol: 'BTD',
+    tokenAddresses: {
+      97: '',
+      56: '0xd1102332a213e21faf78b69c03572031f3552c33',
+    },
+    quoteTokenSymbol: QuoteToken.BNB,
+    quoteTokenAdresses: contracts.wbnb,
+  },
+  {
     pid: 10,
     isTokenOnly: true,
     lpSymbol: 'USDC',
