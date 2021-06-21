@@ -30,6 +30,15 @@ const tokens = {
     decimals: 18,
     projectLink: 'https://clockwork.money/',
   },
+  user5: {
+    symbol: 'USER5',
+    address: {
+      56: '0x81100f79eb6c3314ee8974a02fa10203c90b0e74',
+      97: '',
+    },
+    decimals: 9,
+    projectLink: 'https://clockwork.money/',
+  },
   cake: {
     symbol: 'CAKE',
     address: {
