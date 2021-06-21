@@ -134,7 +134,7 @@ const farms: FarmConfig[] = [
     tokenSymbol: 'CLOCK',
     tokenAddresses: {
       97: '',
-      56: '0xa0bb7b9f0db2faf0ee51fabb4502c430750eea6f',
+      56: '0x1176F401497A51A222f16bc1B6e5778eDbaB2b12',
     },
     quoteTokenSymbol: QuoteToken.BNB,
     quoteTokenAdresses: contracts.wbnb,

@@ -6,7 +6,7 @@ const tokens = {
   blzd: {
     symbol: 'BLZD',
     address: {
-      56: '0xA0bB7B9f0dB2FaF0eE51fAbb4502c430750Eea6F',
+      56: '0x1176F401497A51A222f16bc1B6e5778eDbaB2b12',
       97: '0x1977ECbdE6832920c3554E238deDFfBC5ed996c9',
     },
     decimals: 18,
@@ -15,7 +15,7 @@ const tokens = {
   clock: {
     symbol: 'CLOCK',
     address: {
-      56: '0xA0bB7B9f0dB2FaF0eE51fAbb4502c430750Eea6F',
+      56: '0x1176F401497A51A222f16bc1B6e5778eDbaB2b12',
       97: '0x1977ECbdE6832920c3554E238deDFfBC5ed996c9',
     },
     decimals: 18,
@@ -33,7 +33,7 @@ const tokens = {
   cake: {
     symbol: 'CAKE',
     address: {
-      56: '0xA0bB7B9f0dB2FaF0eE51fAbb4502c430750Eea6F',
+      56: '0x1176F401497A51A222f16bc1B6e5778eDbaB2b12',
       97: '0xa35062141Fa33BCA92Ce69FeD37D0E8908868AAe',
     },
     decimals: 18,
