@@ -209,15 +209,15 @@ const farms: FarmConfig[] = [
     lpSymbol: 'USER5',
     lpAddresses: {
       97: '',
-      56: '0x89494c524BA3D706cC1DFB1dDb47B27CF14E0d9F', // USER5-BNB LP
+      56: '0x5EF8797fc539016Ab85abfa7aca91D14f1363bd4', // USER5-BUSD LP
     },
     tokenSymbol: 'USER5',
     tokenAddresses: {
       97: '',
       56: '0x81100f79eb6c3314ee8974a02fa10203c90b0e74',
     },
-    quoteTokenSymbol: QuoteToken.BNB,
-    quoteTokenAdresses: contracts.wbnb,
+    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenAdresses: contracts.busd,
   },
 ]
 
