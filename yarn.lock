@@ -5393,10 +5393,10 @@ cliui@^7.0.2:
     strip-ansi "^6.0.0"
     wrap-ansi "^7.0.0"
 
-clock-uikit@^0.2.8:
-  version "0.2.8"
-  resolved "https://registry.yarnpkg.com/clock-uikit/-/clock-uikit-0.2.8.tgz#9c741de6c450ba46b0266889a3c31718d1979b54"
-  integrity sha512-arWKqXwYVvGqSVf78AnFQjKlAFsZxs5dfOLuT3wiCvQh8EctCvJGcsgkoAxMag4vrfl3CIeguQRs/c5km/H8Bw==
+clock-uikit@^0.2.9:
+  version "0.2.9"
+  resolved "https://registry.yarnpkg.com/clock-uikit/-/clock-uikit-0.2.9.tgz#d9fb8eb72f619691ba492041ade2ea2b18b59bae"
+  integrity sha512-WPVDhwapN22xkga3hF6zKsh10aN9yUt0NdxbEXsBZqUEw17beByGfEMLN6GyiwsNHH6IOXcH9Tp8zwp/XtbQxQ==
   dependencies:
     "@types/lodash" "^4.14.162"
     "@types/styled-system" "^5.1.10"
