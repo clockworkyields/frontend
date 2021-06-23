@@ -20,9 +20,8 @@ const useUnstake = (pid: number) => {
       if (pid === 0) {
          const txHash = await leaveStaking(masterChefContract, amount, account)}
       else {
-      const txHash = await unstake(masterChefContract, pid, amount, account)
+      const txHash = await unstake(masterChefContract, pid, amount, account)}
       dispatch(fetchFarmUserDataAsync(account))
-      //console.info(txHash)
     },
     [account, dispatch, masterChefContract, pid],
   )
