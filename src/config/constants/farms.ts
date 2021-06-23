@@ -212,6 +212,7 @@ const farms: FarmConfig[] = [
       56: '0x5EF8797fc539016Ab85abfa7aca91D14f1363bd4', // USER5-BUSD LP
     },
     tokenSymbol: 'USER5',
+    tokenDecimals: 9,
     tokenAddresses: {
       97: '',
       56: '0x81100f79eb6c3314ee8974a02fa10203c90b0e74',
