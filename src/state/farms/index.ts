@@ -53,7 +53,7 @@ export const fetchFarmUserDataAsync = (account) => async (dispatch) => {
       allowance: userFarmAllowances[index],
       tokenBalance: userFarmTokenBalances[index],
       stakedBalance: userStakedBalances[index],
-      earnings: '0',
+      earnings: userFarmEarnings[index],
     }
   })
 
