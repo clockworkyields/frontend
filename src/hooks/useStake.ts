@@ -14,6 +14,8 @@ const useStake = (pid: number) => {
     async (amount: string) => {
       if (pid === 0) {
         const txHash = await enterStaking(masterChefContract, amount, account)}
+        dispatch(fetchFarmUserDataAsync(account))
+        
       else {
       const txHash = await stake(masterChefContract, pid, amount, account)}
       dispatch(fetchFarmUserDataAsync(account))
