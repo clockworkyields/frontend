@@ -30,10 +30,7 @@ export const useAllHarvest = (farmPids: number[]) => {
 
   const handleHarvest = useCallback(async () => {
     const harvestPromises = farmPids.reduce((accum, pid) => {
-      if (farmPid === 0) {
-          return [...accum, harvestClock(masterChefContract, account)]
-    } else {
-        return [...accum, harvest(masterChefContract, pid, account)]}
+         return [...accum, harvest(masterChefContract, pid, account)]
     }, [])
 
     return Promise.all(harvestPromises)
