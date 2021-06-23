@@ -5,19 +5,21 @@ import { fetchFarmUserDataAsync, updateUserBalance, updateUserPendingReward } fr
 import { soushHarvest, soushHarvestBnb, harvest, harvestClock } from 'utils/callHelpers'
 import { useMasterchef, useSousChef } from './useContract'
 
-export const useHarvest = (farmPid: number) => {
+export const useHarvest = (pid: number) => {
   const dispatch = useDispatch()
   const { account } = useWallet()
   const masterChefContract = useMasterchef()
 
   const handleHarvest = useCallback(async () => {
-      if (farmPid === 0) {
-         const txHash = await harvestClock(masterChefContract, 0, account)}
+      if (pid === 0) {
+         const txHash = await harvestClock(masterChefContract, account)}
       else {
-    const txHash = await harvest(masterChefContract, farmPid, account)}
+    const txHash = await harvest(masterChefContract, pid, account)}
     dispatch(fetchFarmUserDataAsync(account))
     // return txHash
-  }, [account, dispatch, farmPid, masterChefContract])
+  }, 
+  [account, dispatch, masterChefContract, pid],
+  )
 
   return { onReward: handleHarvest }
 }
