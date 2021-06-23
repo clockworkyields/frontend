@@ -112,6 +112,15 @@ export const harvest = async (masterChefContract, pid, account) => {
     })
 }
 
+export const harvestClock = async (masterChefContract, pid, account) => {
+  return masterChefContract.methods
+    .enterStaking(pid, '0')
+    .send({ from: account })
+    .on('transactionHash', (tx) => {
+      return tx.transactionHash
+    })
+}
+
 export const soushHarvest = async (sousChefContract, account) => {
   return sousChefContract.methods
     .deposit('0')
