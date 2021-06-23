@@ -16,7 +16,7 @@ export const useHarvest = (pid: number) => {
       else {
     const txHash = await harvest(masterChefContract, pid, account)}
     dispatch(fetchFarmUserDataAsync(account))
-    // return txHash
+    return txHash
   }, 
   [account, dispatch, masterChefContract, pid],
   )
