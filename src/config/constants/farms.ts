@@ -129,15 +129,15 @@ const farms: FarmConfig[] = [
     lpSymbol: 'CLOCK',
     lpAddresses: {
       97: '',
-      56: '0xb2Fc2db05d5445FBbebCD416C3262Df529fA6538', // BLZD-BUSD LP
+      56: '0xc7471710f1621e9abda91d7ca38478192d7d797f', // BLZD-BUSD LP
     },
     tokenSymbol: 'CLOCK',
     tokenAddresses: {
       97: '',
       56: '0x1176F401497A51A222f16bc1B6e5778eDbaB2b12',
     },
-    quoteTokenSymbol: QuoteToken.BNB,
-    quoteTokenAdresses: contracts.wbnb,
+    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenAdresses: contracts.busd,
   },
   {
     pid: 8,
