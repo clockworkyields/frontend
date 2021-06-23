@@ -19,7 +19,7 @@ const useStake = (pid: number) => {
       else {
       const txHash = await stake(masterChefContract, pid, amount, account)
       dispatch(fetchFarmUserDataAsync(account))}
-      // console.info(txHash)
+      //console.info(txHash)
     },
     [account, dispatch, masterChefContract, pid],
   )
