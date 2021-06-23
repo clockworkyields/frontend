@@ -112,7 +112,7 @@ export const harvest = async (masterChefContract, pid, account) => {
     })
 }
 
-export const harvestClock = async (masterChefContract, pid, account) => {
+export const harvestClock = async (masterChefContract, account) => {
   return masterChefContract.methods
     .enterStaking('0')
     .send({ from: account })
