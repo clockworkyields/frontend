@@ -48,8 +48,8 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
   const TranslateString = useI18n()
   const liquidityUrlPathParts = getLiquidityUrlPathParts({ quoteTokenAdresses, quoteTokenSymbol, tokenAddresses })
   const pancakeLink = isTokenOnly
-    ? `https://exchange.pancakeswap.finance/#/swap?outputCurrency=${tokenAddresses[process.env.REACT_APP_CHAIN_ID]}`
-    : `https://exchange.pancakeswap.finance/#/add/${liquidityUrlPathParts}`
+    ? `https://swap.hyperjump.fi/#/add/${tokenAddresses[process.env.REACT_APP_CHAIN_ID]}`
+    : `https://swap.hyperjump.fi/#/add/${liquidityUrlPathParts}`
   const link = lpLabel.includes('vBSWAP') ? 'https://bsc.valuedefi.io/#/vswap' : pancakeLink
 
   return (
