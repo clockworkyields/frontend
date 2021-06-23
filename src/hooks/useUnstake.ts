@@ -7,7 +7,7 @@ import {
   updateUserBalance,
   updateUserPendingReward,
 } from 'state/actions'
-import { unstake, sousUnstake, sousEmegencyUnstake } from 'utils/callHelpers'
+import { unstake, sousUnstake, sousEmegencyUnstake, leaveStaking } from 'utils/callHelpers'
 import { useMasterchef, useSousChef } from './useContract'
 
 const useUnstake = (pid: number) => {
@@ -17,6 +17,9 @@ const useUnstake = (pid: number) => {
 
   const handleUnstake = useCallback(
     async (amount: string) => {
+      if (pid === 0) {
+         const txHash = await leaveStaking(masterChefContract, amount, account)}
+      else {
       const txHash = await unstake(masterChefContract, pid, amount, account)
       dispatch(fetchFarmUserDataAsync(account))
       console.info(txHash)
