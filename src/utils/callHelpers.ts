@@ -59,6 +59,15 @@ export const unstake = async (masterChefContract, pid, amount, account) => {
     })
 }
 
+export const leaveStaking = async (masterChefContract, amount, account) => {
+  return masterChefContract.methods
+    .leaveStaking(new BigNumber(amount).times(new BigNumber(10).pow(18)).toString())
+    .send({ from: account })
+    .on('transactionHash', (tx) => {
+      return tx.transactionHash
+    })
+}
+
 export const sousUnstake = async (sousChefContract, amount, account) => {
   // shit code: hard fix for old CTK and BLK
   if (sousChefContract.options.address === '0x3B9B74f48E89Ebd8b45a53444327013a2308A9BC') {
