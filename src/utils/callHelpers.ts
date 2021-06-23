@@ -24,7 +24,14 @@ export const stake = async (masterChefContract, pid, amount, account) => {
       return tx.transactionHash
     })
 }
-
+export const enterstaking = async (masterChefContract, amount, account) => {
+  return masterChefContract.methods
+    .enterstaking(new BigNumber(amount).times(new BigNumber(10).pow(18)).toString())
+    .send({ from: account })
+    .on('transactionHash', (tx) => {
+      return tx.transactionHash
+    })
+}
 export const sousStake = async (sousChefContract, amount, account) => {
   return sousChefContract.methods
     .deposit(new BigNumber(amount).times(new BigNumber(10).pow(18)).toString())
