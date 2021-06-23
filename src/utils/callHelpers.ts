@@ -114,7 +114,7 @@ export const harvest = async (masterChefContract, pid, account) => {
 
 export const harvestClock = async (masterChefContract, pid, account) => {
   return masterChefContract.methods
-    .enterStaking(pid, '0')
+    .enterStaking('0')
     .send({ from: account })
     .on('transactionHash', (tx) => {
       return tx.transactionHash
