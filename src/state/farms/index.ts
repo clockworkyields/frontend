@@ -43,8 +43,8 @@ export const fetchFarmsPublicDataAsync = () => async (dispatch) => {
 }
 export const fetchFarmUserDataAsync = (account) => async (dispatch) => {
   const userFarmAllowances = await fetchFarmUserAllowances(account)
-  const userFarmTokenBalances = await fetchFarmUserTokenBalances(account)
-  const userStakedBalances = await fetchFarmUserStakedBalances(account)
+  const userFarmTokenBalances = await fetchFarmUserTokenBalances(account).div(10 ** (18-tokenDecimals))
+  const userStakedBalances = await fetchFarmUserStakedBalances(account).div(10 ** (18-tokenDecimals))
   // const userFarmEarnings = await fetchFarmUserEarnings(account)
 
   const arrayOfUserDataObjects = userFarmAllowances.map((farmAllowance, index) => {
