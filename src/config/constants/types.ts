@@ -56,6 +56,7 @@ export interface FarmConfig {
   tokenAddresses: Address
   quoteTokenSymbol: QuoteToken
   quoteTokenAdresses: Address
+  tokenDecimals?: number
   multiplier?: string
   isTokenOnly?: boolean
   isCommunity?: boolean
