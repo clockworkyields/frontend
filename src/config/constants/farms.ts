@@ -9,13 +9,13 @@ const farms: FarmConfig[] = [
       97: '',
       56: '0x9927d2bacb180e157a1dbf41e6ad45eb8ca988ad',
     },
-    tokenSymbol: 'CLOCK',
+    tokenSymbol: 'USDC',
     tokenAddresses: {
       97: '',
-      56: '0x1176F401497A51A222f16bc1B6e5778eDbaB2b12',
+      56: '0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d',
     },
-    quoteTokenSymbol: QuoteToken.BUSD,
-    quoteTokenAdresses: contracts.busd,
+    quoteTokenSymbol: QuoteToken.CLOCK,
+    quoteTokenAdresses: contracts.clock,
   },
   {
     pid: 1,
