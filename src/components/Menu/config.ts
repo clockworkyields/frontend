@@ -12,7 +12,7 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Exchange',
-        href: 'https://swap.hyperjump.fi/#/swap?outputcurrency=',
+        href: 'https://swap.hyperjump.fi/#/swap?inputCurrency=0x1176F401497A51A222f16bc1B6e5778eDbaB2b12',
         external: true,
       },
       {
