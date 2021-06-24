@@ -73,10 +73,10 @@ const FarmedStakingCard = () => {
             type: 'ERC20',
             options: {
               address: '0x1176F401497A51A222f16bc1B6e5778eDbaB2b12',
-              symbol: 'BLZD',
+              symbol: 'CLOCK',
               decimals: '18',
               image:
-                'https://blizzard.moneyhttps://raw.githubusercontent.com/blzd-dev/blzd-frontend/master/public/images/farms/blzd.png',
+                'https://raw.githubusercontent.com/clockworkyields/clock-frontend/master/public/images/clockTokens/clock-nobackground.png',
             },
           },
         })

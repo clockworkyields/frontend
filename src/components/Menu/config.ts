@@ -17,7 +17,7 @@ const config: MenuEntry[] = [
       },
       {
         label: 'Liquidity',
-        href: 'https://swap.hyperjump.fi/#/add/BNB/',
+        href: 'https://swap.hyperjump.fi/#/add/BNB/0x1176F401497A51A222f16bc1B6e5778eDbaB2b12',
         external: true,
       },
     ],
